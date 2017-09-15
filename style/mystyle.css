@@ -1,0 +1,144 @@
+* {
+  box-sizing: border-box;
+}
+.w3-myfont {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.StepProgress {
+  list-style-type: none;
+  position: relative;
+  padding-top: 20px;
+  padding-left: 45px;
+}
+
+.StepProgress-item::before {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 40px;
+  width: 10px;
+  height: 100%;
+  border-left: 2px solid #CCC;
+}
+.StepProgress-item:last-child::before {
+  content: none;
+}
+
+/*.StepProgress-item:not(.s) {
+  position: relative;
+  padding-bottom: 50px;
+  background: red; /* For browsers that do not support gradients
+  background: -webkit-linear-gradient(left, rgba(74, 203, 87, 0.86) , white); /* For Safari 5.1 to 6.0
+  background: -o-linear-gradient(left, red, yellow); /* For Opera 11.1 to 12.0
+  background: -moz-linear-gradient(left, rgba(74, 203, 87, 0.86) , white); /* For Firefox 3.6 to 15
+  background: linear-gradient(left, red , yellow); /* Standard syntax
+}*/
+
+.StepProgress-item {
+  position: relative;
+  padding-bottom: 50px;
+}
+
+.StepProgress-item.s {
+  padding-bottom: 30px;
+}
+
+.StepProgress-item:hover {
+  cursor: pointer;
+  /*text-shadow: 0.5px 0.5px 0.5px black, 0 0 5px green, 0 0 1px darkgreen;*/
+  text-shadow: 2px 2px 5px green;
+}
+
+
+/*.StepProgress-item:not(.s):hover {
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}*/
+
+.StepProgress-item::before {
+  display: inline-block;
+  content: '';
+  position: absolute;
+  left: -30px;
+  height: 100%;
+  width: 40px;
+}
+
+
+.StepProgress-item::after {
+   content: '';
+   display: inline-block;
+   position: absolute;
+   top: 0;
+   left: -43px;
+   width: 30px;
+   height: 30px;
+   border: 2px solid #CCC;
+   border-radius: 50%;
+   background-color: #FFF;
+ }
+
+.StepProgress-item.s::after {
+   content: '';
+   display: inline-block;
+   position: absolute;
+   top: 0;
+   left: -39px;
+   width: 20px;
+   height: 20px;
+   border: 2px solid #CCC;
+   border-radius: 50%;
+   background-color: #FFF;
+ }
+
+ .StepProgress-item.is-done::before {
+     border-left: 2px solid green;
+   }
+ .StepProgress-item.is-done::after {
+     content: "";
+     font-size: 15px;
+     color: #FFF;
+     text-align: center;
+     border: 2px solid green;
+     background-color: green;
+   }
+ .StepProgress-item.s.is-done::after {
+     content: "\2713";
+     font-size: 12px;
+     color: #FFF;
+     text-align: center;
+     border: 2px solid green;
+     background-color: green;
+   }
+
+  .StepProgress-item.current::before {
+      border-left: 2px solid green;
+    }
+
+  .StepProgress-item.current::after {
+    padding-top: 1px;
+    width: 35px;
+    height: 35px;
+    top: -4px;
+    left: -47px;
+    text-align: center;
+    color: green;
+    border: 2px solid green;
+    background-color: white;
+  }
+  .StepProgress-item.s.current::after {
+    padding-top: 1px;
+    width: 25px;
+    height: 25px;
+    top: -4px;
+    left: -41px;
+    text-align: center;
+    color: green;
+    border: 2px solid green;
+    background-color: white;
+  }
+  strong {
+    display: block;
+  }
