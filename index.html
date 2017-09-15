@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Differential Privacy</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" type="text/css" href="style/mystyle.css">
+
+</head>
+
+<body class="w3-light-grey">
+
+	<div class="w3-container w3-grey" style="position: relative;">
+	  <h2 class="w3-text-black w3-myfont">Differential Privacy</h2>
+	  <p>An interactive website telling you differential privacy</p>
+	</div>
+
+<!-- content -->
+	<div class="w3-container">
+		<div class="w3-container w3-row-padding">
+
+<!-- Navigation Bar -->
+			<div class="w3-third w3-container">
+				<ul class="StepProgress w3-myfont">
+					<li class="StepProgress-item is-done" onclick="goSteps()"><b>Definition of Differential Privacy<b></li>
+					<li class="StepProgress-item s is-done">Privacy is everywhere</li>
+					<li class="StepProgress-item s is-done">The goal of differential privacy</li>
+					<li class="StepProgress-item s is-done">Neighboring datasets</li>
+					<li class="StepProgress-item s is-done">Differential privacy promises ...</li>
+					<li class="StepProgress-item s is-done">Randomized function</li>
+					<li class="StepProgress-item s is-done">&#x2107;-level of privacy</li>
+					<li class="StepProgress-item s is-done">Differential privacy</li>
+					<li class="StepProgress-item is-done"><strong>Sensitivity of Functions<strong></li>
+					<li class="StepProgress-item is-done">Building Block</li>
+					<li class="StepProgress-item s is-done">Laplace Mechanism</li>
+					<li class="StepProgress-item s current">Exponential Mechanism</li>
+					<li class="StepProgress-item">Properties</li>
+					<li class="StepProgress-item s">Compostion Theory</li>
+					<li class="StepProgress-item s">Post-Processing</li>
+				</ul>
+			</div>
+
+<!-- Slides -->
+			<div class="w3-twothird flowsteps">
+				<div class="w3-card-2">
+					<div class="w3-display-container">
+						<img class="mySlides" src="slides/01.jpg" style="width:100%">
+						<div class="mySlides">
+							<h2> hello </h2>
+						</div>
+
+						<button class="w3-button w3-display-left" style="font-weight: bold; font-size: 18px; border-radius: 0 3px 3px 0;"
+						onclick="plusDivs(-1)">&#10094;</button>
+						<button class="w3-button w3-display-right" style="font-weight: bold; font-size: 18px; border-radius: 0 3px 3px 0;"
+						onclick="plusDivs(1)" >&#10095;</button>
+
+						<div class="w3-section w3-center">
+							<button class="w3-button w3-round demo" onclick="currentDiv(1)">1</button>
+							<button class="w3-button w3-round demo" onclick="currentDiv(2)">2</button>
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="w3-container w3-grey" style="position: relative;">
+		<p>An interactive website telling you differential privacy</p>
+		<p style="text-align: right"> Vidi </p>
+	</div>
+
+</body>
+
+<script src="scripts/web_interaction.js"></script>
+
+</html>
