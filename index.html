@@ -4,6 +4,7 @@
 	<title>Differential Privacy</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style/mystyle.css">
 
 </head>
@@ -42,26 +43,134 @@
 
 <!-- Slides -->
 			<div class="w3-twothird flowsteps">
-				<div class="w3-card-2">
-					<div class="w3-display-container">
-						<img class="mySlides" src="slides/01.jpg" style="width:100%">
-						<div class="mySlides">
-							<h2> hello </h2>
+					<div class="w3-display-container w3-myfont">
+						<p class="w3-center p11"> An adversary is performing a query "How many peopel have HIV?" on two datasets D1 and D2 </p>
+						<div class="w3-row">
+							<div class="w3-col w3-left w3-container" style="width: 40%">
+
+								<!--div class="w3-cell-row">
+
+									<div class="w3-cell">
+										<button id="btn1">Query</button>
+									</div>
+
+									<div class="w3-cell-top w3-grey" style="height: 5px; width:70px">
+									  <div class="w3-green" style="height:5px;width:10px"></div>
+									</div>
+
+									<table class="w3-cell w3-table-all w3-centered">
+										<tr class="w3-green">
+											<th>Name</th>
+											<th>Age</th>
+											<th>HIV</th>
+										</tr>
+										<tr>
+											<td>Alice</td>
+											<td>20</td>
+											<td>N</td>
+										</tr>
+										<tr>
+											<td>Bob</td>
+											<td>25</td>
+											<td>N</td>
+										</tr>
+										<tr>
+											<td>Tom</td>
+											<td>38</td>
+											<td>Y</td>
+										</tr>
+										<tr>
+											<td>Jane</td>
+											<td>16</td>
+											<td>Y</td>
+										</tr>
+										<tr>
+											<td>Jason</td>
+											<td>31</td>
+											<td>N</td>
+										</tr>
+									</table>
+
+								</div-->
+
+								<!-- button, line and table -->
+								<div class="w3-row">
+									<!-- button -->
+									<div class="w3-col w3-left" style="width:10%">
+										<button id="btn1">Query</button>
+									</div>
+									<!-- table and downward line -->
+									<div class="w3-col w3-right" style="width:50%">
+										<!-- table -->
+										<table class="w3-table-all">
+											<tr class="w3-green">
+												<th>Name</th>
+												<th>Age</th>
+												<th>HIV</th>
+											</tr>
+											<tr>
+												<td>Alice</td>
+												<td>20</td>
+												<td>N</td>
+											</tr>
+											<tr>
+												<td>Bob</td>
+												<td>25</td>
+												<td>N</td>
+											</tr>
+											<tr>
+												<td>Tom</td>
+												<td>38</td>
+												<td>Y</td>
+											</tr>
+											<tr>
+												<td>Jane</td>
+												<td>16</td>
+												<td>Y</td>
+											</tr>
+											<tr>
+												<td>Jason</td>
+												<td>31</td>
+												<td>N</td>
+											</tr>
+										</table>
+										<!-- downward line-->
+										<div class="w3-grey" style="height: 10px;">
+											<div class="w3-green" style="height: 50%; width: 5px"></div>
+										</div>
+
+									</div>
+
+									<!-- horizontal line -->
+									<div class="w3-rest w3-grey" style="height: 5px;">
+										<div class="w3-green" style="height: 5px; width: 50%"></div>
+									</div>
+
+								</div>
+
+						  </div>
+
+							<div class="w3-col w3-right w3-container" style="width: 40%">
+
+							</div>
+
+							<div class="w3-rest w3-container">
+							</div>
 						</div>
 
-						<button class="w3-button w3-display-left" style="font-weight: bold; font-size: 18px; border-radius: 0 3px 3px 0;"
-						onclick="plusDivs(-1)">&#10094;</button>
-						<button class="w3-button w3-display-right" style="font-weight: bold; font-size: 18px; border-radius: 0 3px 3px 0;"
-						onclick="plusDivs(1)" >&#10095;</button>
 
-						<div class="w3-section w3-center">
-							<button class="w3-button w3-round demo" onclick="currentDiv(1)">1</button>
-							<button class="w3-button w3-round demo" onclick="currentDiv(2)">2</button>
-						</div>
-
+						<!-- continue button -->
+						<button class="w3-btn w3-white w3-border w3-border-green w3-round-large w3-display-middle"
+						  style="position: relative; top: 100px;" id="btn11" >continue...</button>
 
 					</div>
+
+					<div class="w3-container div2">
+						<p class="w3-myfont w3-center" id="p21"> new div </p>
+					</div>
 				</div>
+
+
 			</div>
 		</div>
 	</div>
@@ -73,6 +182,6 @@
 
 </body>
 
-<script src="scripts/web_interaction.js"></script>
+<script src="scripts/webpage_interaction_jQuery.js"></script>
 
 </html>
