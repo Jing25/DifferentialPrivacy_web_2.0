@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style/mystyle.css">
 
 </head>
@@ -48,51 +50,6 @@
 						<div class="w3-row">
 							<div class="w3-col w3-left w3-container" style="width: 40%">
 
-								<!--div class="w3-cell-row">
-
-									<div class="w3-cell">
-										<button id="btn1">Query</button>
-									</div>
-
-									<div class="w3-cell-top w3-grey" style="height: 5px; width:70px">
-									  <div class="w3-green" style="height:5px;width:10px"></div>
-									</div>
-
-									<table class="w3-cell w3-table-all w3-centered">
-										<tr class="w3-green">
-											<th>Name</th>
-											<th>Age</th>
-											<th>HIV</th>
-										</tr>
-										<tr>
-											<td>Alice</td>
-											<td>20</td>
-											<td>N</td>
-										</tr>
-										<tr>
-											<td>Bob</td>
-											<td>25</td>
-											<td>N</td>
-										</tr>
-										<tr>
-											<td>Tom</td>
-											<td>38</td>
-											<td>Y</td>
-										</tr>
-										<tr>
-											<td>Jane</td>
-											<td>16</td>
-											<td>Y</td>
-										</tr>
-										<tr>
-											<td>Jason</td>
-											<td>31</td>
-											<td>N</td>
-										</tr>
-									</table>
-
-								</div-->
-
 								<!-- button, line and table -->
 								<div class="w3-row">
 									<!-- button -->
@@ -100,7 +57,7 @@
 										<button id="btn1">Query</button>
 									</div>
 									<!-- table and downward line -->
-									<div class="w3-col w3-right" style="width:50%">
+									<div class="w3-col w3-right" style="width:60%">
 										<!-- table -->
 										<table class="w3-table-all">
 											<tr class="w3-green">
@@ -135,20 +92,28 @@
 											</tr>
 										</table>
 										<!-- downward line-->
-										<div class="w3-grey" style="height: 10px;">
-											<div class="w3-green" style="height: 50%; width: 5px"></div>
+										<div class="w3-display-container" style="height: 80px">
+											<div class="w3-grey w3-display-middle" style="height: 80px; width:5px;">
+												<div class="w3-green" style="height: 50%; width: 5px"></div>
+											</div>
 										</div>
+
+										<!-- D3 function plot and bar chart -->
+
+										<div class="w3-display-container" id="d3_plots_left" style="height: 200px"></div>
+
 
 									</div>
 
 									<!-- horizontal line -->
-									<div class="w3-rest w3-grey" style="height: 5px;">
+									<div class="w3-rest w3-grey" style="height: 5px; margin-top: 10px">
 										<div class="w3-green" style="height: 5px; width: 50%"></div>
 									</div>
 
-								</div>
 
-						  </div>
+								 </div>  <!-- end of button, two lines, table -->
+
+						  </div>  <!-- end of left side -->
 
 							<div class="w3-col w3-right w3-container" style="width: 40%">
 
