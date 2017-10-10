@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://d3js.org/d3.v4.min.js"></script>
+	<script src="scripts/jquery.animate-colors.js"></script>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style/mystyle.css">
 
@@ -54,7 +54,7 @@
 								<div class="w3-row">
 									<!-- button -->
 									<div class="w3-col w3-left" style="width:10%">
-										<button id="btn1">Query</button>
+										<button id="btnQuery">Query</button>
 									</div>
 									<!-- table and downward line -->
 									<div class="w3-col w3-right" style="width:60%">
@@ -65,7 +65,7 @@
 												<th>Age</th>
 												<th>HIV</th>
 											</tr>
-											<tr>
+											<tr class="HIV1">
 												<td>Alice</td>
 												<td>20</td>
 												<td>Y</td>
@@ -75,12 +75,12 @@
 												<td>25</td>
 												<td>N</td>
 											</tr>
-											<tr>
+											<tr class="HIV2">
 												<td>Tom</td>
 												<td>38</td>
 												<td>Y</td>
 											</tr>
-											<tr>
+											<tr class="HIV3">
 												<td>Jane</td>
 												<td>16</td>
 												<td>Y</td>
@@ -94,7 +94,7 @@
 										<!-- downward line-->
 										<div class="w3-display-container" style="height: 80px">
 											<div class="w3-grey w3-display-middle" style="height: 80px; width:5px;">
-												<div class="w3-green" style="height: 50%; width: 5px"></div>
+												<div class="w3-green" id="V_line" style="height: 50%; width: 5px"></div>
 											</div>
 										</div>
 
@@ -103,15 +103,16 @@
 										<div class="w3-display-container" id="d3_plots_left" style="height: 200px"></div>
 										<!--button class="w3-btn w3-white w3-border w3-border-grey w3-round-large w3-display-middle"
 										  style="position: relative; top: 55px;" id="staAnimation" >Start Animation</button-->
-										<input class="w3-btn w3-white w3-border w3-border-grey w3-round-large w3-display-middle"
-										  style="position: relative; top: 55px;" id="staAnimation" value="Start Animation"></input>
+										<input class="w3-btn w3-white w3-border w3-border-grey w3-display-middle" type="button"
+										  style="position: relative; top: 60px;" id="answer" value="Answer = "></input>
 
 
 									</div>
 
 									<!-- horizontal line -->
 									<div class="w3-rest w3-grey" style="height: 5px; margin-top: 10px">
-										<div class="w3-green" style="height: 5px; width: 50%"></div>
+										<div class="w3-green" id="H_line" style="height: 5px; width: 50%;"></div>
+
 									</div>
 
 
@@ -128,9 +129,17 @@
 						</div>
 
 
+						<!-- animation button -->
+						<div class="w3-container">
+						<input class="w3-btn w3-white w3-border w3-border-green w3-round-large w3-display-middle" type="button"
+						  style="position: relative; top: 100px;" id="btnAnimation" value="Start Animation"></button>
+						</div>
+
 						<!-- continue button -->
+						<div class="w3-container" style="position: relative; top: 200px">
 						<button class="w3-btn w3-white w3-border w3-border-green w3-round-large w3-display-middle"
-						  style="position: relative; top: 100px;" id="btn11" >continue...</button>
+						  style="position: relative;" id="btn11" >continue...</button>
+						</div>
 
 					</div>
 
