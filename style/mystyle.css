@@ -143,12 +143,19 @@
     display: block;
   }
 
+  /*html, body {
+  overflow: hidden;
+}*/
 
-  .div2 {
+  .chapter1_2 {
     display: none;
   }
 
   #d3_plots_left {
     width: 100%;
-    height: 300px;
+    height: 600px;
+  }
+
+  .neighboringDS {
+    display: none;
   }
