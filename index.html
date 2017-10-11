@@ -12,7 +12,7 @@
 
 </head>
 
-<body class="w3-light-grey">
+<body class="w3-light-grey" style="margin-bottom: 150px">
 
 	<header class="w3-container w3-grey" >   <!--style="position: fixed; top: 0; width: 100%; z-index: 1"-->
 	  <h2 class="w3-text-black w3-myfont">Differential Privacy</h2>
@@ -49,8 +49,8 @@
 
 				<!-- Chapter 1_1 -->
 					<div class="w3-display-container w3-myfont chapter1_1">
-						<p class="w3-center p11"> An adversary is performing a query "How many peopel have HIV?" on two datasets D1 and D2 </p>
-						<div class="w3-row">
+						<p class="w3-center p11"> An adversary is performing a query "How many peopel have HIV?" on these two datasets </p>
+						<div class="w3-row w3-container">
 							<!-- Left side start -->
 							<div class="w3-col w3-left w3-container" style="width: 40%">
 
@@ -109,8 +109,10 @@
 										<div class="w3-display-container" id="d3_plots_left" style="height: 350px;"></div>
 										<!--button class="w3-btn w3-white w3-border w3-border-grey w3-round-large w3-display-middle"
 										  style="position: relative; top: 55px;" id="staAnimation" >Start Animation</button-->
-										<input class="w3-btn w3-white w3-border w3-border-grey w3-display-middle" type="button"
-										  style="position: relative; top: 60px;" id="answerL" value="Answer = "></input>
+										<div class="w3-center" style="margin-top: 30px">
+											<input class="w3-btn w3-white w3-border w3-border-grey" type="button"
+											   id="answerL" value="Answer = "></input>
+									  </div>
 
 									</div>
 
@@ -182,11 +184,10 @@
 									<div class="w3-col w3-left" style="width:70%">
 
 										<div class="w3-display-container" id="d3_plots_right" style="height: 350px"></div>
-										<!--button class="w3-btn w3-white w3-border w3-border-grey w3-round-large w3-display-middle"
-											style="position: relative; top: 55px;" id="staAnimation" >Start Animation</button-->
-										<input class="w3-btn w3-white w3-border w3-border-grey w3-display-middle" type="button"
-											style="position: relative; top: 60px;" id="answerR" value="Answer = "></input>
-
+										<div class="w3-center" style="margin-top: 30px">
+											<input class="w3-btn w3-white w3-border w3-border-grey" type="button"
+											   id="answerR" value="Answer = "></input>
+									  </div>
 
 									</div>
 
@@ -202,232 +203,240 @@
 							</div>  <!-- end of right side -->
 
 							 <!-- center -->
-							<div class="w3-rest w3-container">
-								<div class="w3-container" >
+							<div class="w3-rest">
 									<button class="w3-btn w3-white w3-border w3-border-green w3-round-large w3-display-middle"
 										style="position: relative; top: 30px" id="btndel" >Delete Alice's data</button>
 										<p class="neighboringDS"> These two datasets are neiboring datasets, only differing by removing of a single arbitary row </p>
 										<!-- <div style="font-size: 20px; transform: scale(5, 2); top: 100px;">&#10230;</div> -->
-								</div>
-								<div class="w3-container" style="positon: relative;">
-									<div style="font-size: 50px; transform: scale(2, 1); width: 10px; margin-left: 40px;">&#10230;</div>
-								</div>
 
+									<div class="w3-center" style="font-size: 50px; transform: scale(2, 1);">&#10230;</div>
 							</div> <!-- end of center -->
 						</div>
 
 
 						<!-- animation button -->
-						<div class="w3-container">
-						<input class="w3-btn w3-white w3-border w3-border-green w3-round-large w3-display-middle" type="button"
-						  style="position: relative; top: 100px;" id="btnAnimation" data-default="Keep Querying" data-alt="Stop Querying" value="Keep Querying"></input>
+						<div class="w3-container w3-center" style="margin-top: 30px">
+							<input class="w3-btn w3-white w3-border w3-border-green w3-round-large" type="button"
+							  id="btnAnimation" data-default="Keep Querying" data-alt="Stop Querying" value="Keep Querying"></input>
 						</div>
 
+						<!-- <div class="w3-container w3-right" -->
+
 						<!-- continue button -->
-						<div class="w3-container" style="position: relative; top: 200px">
-						<button class="w3-btn w3-white w3-border w3-border-green w3-round-large w3-display-middle"
-						  style="position: relative;" id="btnChapter1_1" >continue...</button>
+						<div class="w3-container w3-center chaper1_1_next01">
+							<p> We can always get the true answer when we do the query. Thus, deleting Alice's data exposes
+							   the fact that she has HIV</p>
+							<p>What if we...</P>
+							<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
+							  id="btnChapter1_1" >continue...</button>
 						</div>
 
 					</div>
 
 				<!-- Chapter1_2 -->
-				  <div class="w3-display-container w3-myfont chapter1_2" style="position: relative; top: 150px">
-						<p class="w3-center p11"> An adversary is performing a query "How many peopel have HIV?" on two datasets D1 and D2 </p>
-						<div class="w3-row">
-							<!-- Left side start -->
-							<div class="w3-col w3-left w3-container" style="width: 40%">
+				<div class="w3-display-container w3-myfont chapter1_2">
 
-								<!-- button, line and table -->
-								<div class="w3-row">
-									<!-- button -->
-									<div class="w3-col w3-left" style="width:10%">
-										<button id="btnQueryL">Query</button>
-									</div>
-									<!-- table and downward line -->
-									<div class="w3-col w3-right" style="width:60%">
-										<!-- table -->
-										<table class="w3-table-all">
-											<tr class="w3-green">
-												<th>Name</th>
-												<th>Age</th>
-												<th>HIV</th>
-											</tr>
-											<tr class="HIV1L">
-												<td>Alice</td>
-												<td>20</td>
-												<td>Y</td>
-											</tr>
-											<tr>
-												<td>Bob</td>
-												<td>25</td>
-												<td>N</td>
-											</tr>
-											<tr class="HIV2L">
-												<td>Tom</td>
-												<td>38</td>
-												<td>Y</td>
-											</tr>
-											<tr class="HIV3L">
-												<td>Jane</td>
-												<td>16</td>
-												<td>Y</td>
-											</tr>
-											<tr>
-												<td>Jason</td>
-												<td>31</td>
-												<td>N</td>
-											</tr>
-										</table>
-										<!-- downward line-->
-										<div class="w3-display-container" style="height: 80px">
-											<div class="w3-grey w3-display-middle" style="height: 80px; width:5px;">
-												<div class="w3-green" id="V_lineL" style="height: 0%; width: 5px"></div>
-											</div>
-										</div>
+					<div class="w3-row w3-container" style="margin-top:30px">
+						<!-- Left side start -->
+						<div class="w3-col w3-left w3-container" style="width: 40%">
 
-									</div>
-
-										<!-- D3 function plot and bar chart -->
-									<div class="w3-col w3-right" style="width:70%">
-										<div class="w3-display-container" id="d3_plots_left" style="height: 350px;"></div>
-										<!--button class="w3-btn w3-white w3-border w3-border-grey w3-round-large w3-display-middle"
-											style="position: relative; top: 55px;" id="staAnimation" >Start Animation</button-->
-										<input class="w3-btn w3-white w3-border w3-border-grey w3-display-middle" type="button"
-											style="position: relative; top: 60px;" id="answerL" value="Answer = "></input>
-
-									</div>
-
-									<!-- horizontal line -->
-									<div class="w3-rest w3-grey" style="height: 5px; margin-top: 10px">
-										<div class="w3-green" id="H_lineL" style="height: 5px; width: 0%;"></div>
-
-									</div>
-
-
-								 </div>  <!-- end of button, two lines, table -->
-
-							</div>  <!-- end of left side -->
-
-							<!-- right side start -->
-							<div class="w3-col w3-right w3-container" style="width: 40%">
-
-								<!-- button, line and table -->
-								<div class="w3-row">
-									<!-- button -->
-									<div class="w3-col w3-right" style="width:10%">
-										<button id="btnQueryR">Query</button>
-									</div>
-									<!-- table and downward line -->
-									<div class="w3-col w3-left" style="width:60%">
-										<!-- table -->
-										<table class="w3-table-all">
-											<tr class="w3-green">
-												<th>Name</th>
-												<th>Age</th>
-												<th>HIV</th>
-											</tr>
-											<tr class="HIV1R">
-												<td>Alice</td>
-												<td>20</td>
-												<td>Y</td>
-											</tr>
-											<tr>
-												<td>Bob</td>
-												<td>25</td>
-												<td>N</td>
-											</tr>
-											<tr class="HIV2R">
-												<td>Tom</td>
-												<td>38</td>
-												<td>Y</td>
-											</tr>
-											<tr class="HIV3R">
-												<td>Jane</td>
-												<td>16</td>
-												<td>Y</td>
-											</tr>
-											<tr>
-												<td>Jason</td>
-												<td>31</td>
-												<td>N</td>
-											</tr>
-										</table>
-										<!-- downward line-->
-										<div class="w3-display-container vlineR" style="height:80px;">
-											<div class="w3-grey w3-display-middle vlineR" style="height: 80px; width:5px;">
-												<div class="w3-green" id="V_lineR" style="height: 0%; width: 5px"></div>
-											</div>
-										</div>
-
-									</div>
-
-										<!-- D3 function plot and bar chart -->
-									<div class="w3-col w3-left" style="width:70%">
-
-										<div class="w3-display-container" id="d3_plots_right" style="height: 350px"></div>
-										<!--button class="w3-btn w3-white w3-border w3-border-grey w3-round-large w3-display-middle"
-											style="position: relative; top: 55px;" id="staAnimation" >Start Animation</button-->
-										<input class="w3-btn w3-white w3-border w3-border-grey w3-display-middle" type="button"
-											style="position: relative; top: 60px;" id="answerR" value="Answer = "></input>
-
-
-									</div>
-
-									<!-- horizontal line -->
-									<div class="w3-rest w3-grey" style="height: 5px; margin-top: 10px">
-										<div class="w3-green" id="H_lineR" style="height: 5px; width: 0%; float:right;"></div>
-
-									</div>
-
-
-								 </div>  <!-- end of button, two lines, table -->
-
-							</div>  <!-- end of right side -->
-
-							 <!-- center -->
-							<div class="w3-rest w3-container">
-								<div class="w3-container" >
-									<button class="w3-btn w3-white w3-border w3-border-green w3-round-large w3-display-middle"
-										style="position: relative; top: 30px" id="btndel" >Delete Alice's data</button>
-										<p class="neighboringDS"> These two datasets are neiboring datasets, only differing by removing of a single arbitary row </p>
-										<!-- <div style="font-size: 20px; transform: scale(5, 2); top: 100px;">&#10230;</div> -->
+							<!-- button, line and table -->
+							<div class="w3-row">
+								<!-- button -->
+								<div class="w3-col w3-left" style="width:10%">
+									<button id="btnQueryLchp1-2">Query</button>
 								</div>
-								<div class="w3-container" style="positon: relative;">
-									<div style="font-size: 50px; transform: scale(2, 1); width: 10px; margin-left: 40px;">&#10230;</div>
+								<!-- table and downward line -->
+								<div class="w3-col w3-right" style="width:60%">
+									<!-- table -->
+									<table class="w3-table-all">
+										<tr class="w3-green">
+											<th>Name</th>
+											<th>Age</th>
+											<th>HIV</th>
+										</tr>
+										<tr class="HIV1Lchp1-2">
+											<td>Alice</td>
+											<td>20</td>
+											<td>Y</td>
+										</tr>
+										<tr>
+											<td>Bob</td>
+											<td>25</td>
+											<td>N</td>
+										</tr>
+										<tr class="HIV2Lchp1-2">
+											<td>Tom</td>
+											<td>38</td>
+											<td>Y</td>
+										</tr>
+										<tr class="HIV3Lchp1-2">
+											<td>Jane</td>
+											<td>16</td>
+											<td>Y</td>
+										</tr>
+										<tr>
+											<td>Jason</td>
+											<td>31</td>
+											<td>N</td>
+										</tr>
+									</table>
+									<!-- downward line-->
+									<div class="w3-display-container" style="height: 80px">
+										<div class="w3-grey w3-display-middle" style="height: 80px; width:5px;">
+											<div class="w3-green" id="V_lineLchp1-2" style="height: 0%; width: 5px"></div>
+										</div>
+									</div>
+
 								</div>
 
-							</div> <!-- end of center -->
-						</div>
+									<!-- D3 function plot and bar chart -->
+								<div class="w3-col w3-right" style="width:70%">
+									<div class="w3-display-container" id="chapter1_2_plots_left" style="height: 350px;"></div>
+									<!--button class="w3-btn w3-white w3-border w3-border-grey w3-round-large w3-display-middle"
+										style="position: relative; top: 55px;" id="staAnimation" >Start Animation</button-->
+									<div class="w3-center" style="margin-top: 30px">
+										<input class="w3-btn w3-white w3-border w3-border-grey" type="button"
+											 id="answerLchp1-2" value="Answer = "></input>
+									</div>
+
+								</div>
+
+								<!-- horizontal line -->
+								<div class="w3-rest w3-grey" style="height: 5px; margin-top: 10px">
+									<div class="w3-green" id="H_lineLchp1-2" style="height: 5px; width: 0%;"></div>
+
+								</div>
 
 
-						<!-- animation button -->
-						<div class="w3-container">
-						<input class="w3-btn w3-white w3-border w3-border-green w3-round-large w3-display-middle" type="button"
-							style="position: relative; top: 100px;" id="btnAnimation" data-default="Keep Querying" data-alt="Stop Querying" value="Keep Querying"></input>
-						</div>
+							 </div>  <!-- end of button, two lines, table -->
 
-						<!-- continue button -->
-						<div class="w3-container" style="position: relative; top: 200px">
-						<button class="w3-btn w3-white w3-border w3-border-green w3-round-large w3-display-middle"
-							style="position: relative;" id="btnChapter1_1" >continue...</button>
-						</div>
+						</div>  <!-- end of left side -->
 
+						<!-- right side start -->
+						<div class="w3-col w3-right w3-container" style="width: 40%">
+
+							<!-- button, line and table -->
+							<div class="w3-row">
+								<!-- button -->
+								<div class="w3-col w3-right" style="width:10%">
+									<button id="btnQueryRchp1-2">Query</button>
+								</div>
+								<!-- table and downward line -->
+								<div class="w3-col w3-left" style="width:60%">
+									<!-- table -->
+									<table class="w3-table-all">
+										<tr class="w3-green">
+											<th>Name</th>
+											<th>Age</th>
+											<th>HIV</th>
+										</tr>
+										<tr class="HIV1Rchp1-2">
+											<!-- <td>Alice</td>
+											<td>20</td>
+											<td>Y</td> -->
+										</tr>
+										<tr>
+											<td>Bob</td>
+											<td>25</td>
+											<td>N</td>
+										</tr>
+										<tr class="HIV2Rchp1-2">
+											<td>Tom</td>
+											<td>38</td>
+											<td>Y</td>
+										</tr>
+										<tr class="HIV3Rchp1-2">
+											<td>Jane</td>
+											<td>16</td>
+											<td>Y</td>
+										</tr>
+										<tr>
+											<td>Jason</td>
+											<td>31</td>
+											<td>N</td>
+										</tr>
+									</table>
+									<!-- downward line-->
+									<div class="w3-display-container vlineR" style="height:120px;">
+										<div class="w3-grey w3-display-middle vlineR" style="height: 120px; width:5px;">
+											<div class="w3-green" id="V_lineRchp1-2" style="height: 0%; width: 5px"></div>
+										</div>
+									</div>
+
+								</div>
+
+									<!-- D3 function plot and bar chart -->
+								<div class="w3-col w3-left" style="width:70%">
+
+									<div class="w3-display-container" id="chapter1_2_plots_right" style="height: 350px"></div>
+									<div class="w3-center" style="margin-top: 30px">
+										<input class="w3-btn w3-white w3-border w3-border-grey" type="button"
+											 id="answerRchp1-2" value="Answer = "></input>
+									</div>
+
+								</div>
+
+								<!-- horizontal line -->
+								<div class="w3-rest w3-grey" style="height: 5px; margin-top: 10px">
+									<div class="w3-green" id="H_lineRchp1-2" style="height: 5px; width: 0%; float:right;"></div>
+
+								</div>
+
+
+							 </div>  <!-- end of button, two lines, table -->
+
+						</div>  <!-- end of right side -->
+
+						 <!-- center -->
+						<div class="w3-rest">
+							<div class="w3-container" style="height: 500px">
+								<button class="w3-btn w3-white w3-border w3-border-green w3-round-large" style="vertical-align: text-top"
+									  id="btndelchp1-2" >Add noise</button>
+								<p class="noise"> This normal distribution noise expand the answer range from 1 (true answer) to R </p>
+									<!-- <div style="font-size: 20px; transform: scale(5, 2); top: 100px;">&#10230;</div> -->
+
+								<div class="w3-display-center"style="font-size: 50px; transform: scale(2, 1);">&#10230;</div>
+							</div>
+
+						</div> <!-- end of center -->
 					</div>
+
+
+					<!-- animation button -->
+					<div class="w3-container w3-center" style="margin-top: 30px">
+						<input class="w3-btn w3-white w3-border w3-border-green w3-round-large" type="button"
+							id="btnAnimationchp1-2" data-default="Keep Querying" data-alt="Stop Querying" value="Keep Querying"></input>
+					</div>
+
+					<!-- <div class="w3-container w3-right" -->
+
+					<!-- continue button -->
+					<div class="w3-container w3-center chaper1_1_next01">
+						<p> We can always get the true answer when we do the query. Thus, deleting Alice's data exposes
+							 the fact that she has HIV</p>
+						<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
+							id="btnChapter1_2" >continue...</button>
+					</div>
+
+				</div>
 
 			</div> <!-- end twothird main contents-->
 		</div>
 	</div> <!-- end main content -->
 
-	<footer class="w3-container w3-grey w3-padding-32" style="position: fixed; bottom: 0; width: 100%; margin-bottom: 0"> <!--style="position: fixed; bottom: 0; width: 100%"-->
-		<p>An interactive website telling you differential privacy</p>
+	<footer class="w3-container w3-grey w3-padding-32" style="position: fixed; bottom: 0; width: 100%; margin-bottom: 0">
 		<p style="text-align: right"> Vidi </p>
 	</footer>
 
 </body>
 
+<script src="scripts/gaussianRandom.js"></script>
 <script src="scripts/left_barChart_d3.js"></script>
 <script src="scripts/right_barChart_d3.js"></script>
+<script src="scripts/chap1_2LeftChart.js"></script>
+<script src="scripts/chap1_2RightChart.js"></script>
+<script src="scripts/chapter1_2_jquery.js"></script>
 <script src="scripts/webpage_interaction_jQuery.js"></script>
 
 

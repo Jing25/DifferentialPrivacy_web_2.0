@@ -61,7 +61,8 @@ function loop() {
                      repeat();
                      repeat_R();
                      $(this).queue(function(next){
-                      answerL.attr("value", "Answer = " + xL).delay(2300).queue(function(next) {
+                       answerR.attr("value", "Answer = " + xR)
+                       answerL.attr("value", "Answer = " + xL).delay(2300).queue(function(next) {
                         hiv2L.removeAttr("style").delay(1200);
                         hiv1L.removeAttr("style").delay(1200);
                         hiv3L.removeAttr("style").delay(1200);
@@ -106,8 +107,8 @@ $("#btnQueryL").click(function(){
 
  function press() {
    //query.animate({query.addClass("w3-green")});
-     queryL.addClass("w3-green").delay(200).queue(function(next){
-       queryL.removeClass('w3-green').queue(function(next){
+    //  queryL.addClass("w3-green").delay(200).queue(function(next){
+    //    queryL.removeClass('w3-green').queue(function(next){
          hlL.animate({width: "100%"}, "slow").queue(function(next){
                hiv1L.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                  hiv2L.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
@@ -135,10 +136,10 @@ $("#btnQueryL").click(function(){
                })
                next();
              })
-             next();
-           })
-           next();
-         })
+        //      next();
+        //    })
+        //    next();
+        //  })
 
 
  }
@@ -151,8 +152,8 @@ $("#btnQueryR").click(function(){
 
  function press() {
    //query.animate({query.addClass("w3-green")});
-     queryR.addClass("w3-green").delay(200).queue(function(next){
-       queryR.removeClass('w3-green').queue(function(next){
+    //  queryR.addClass("w3-green").delay(200).queue(function(next){
+    //    queryR.removeClass('w3-green').queue(function(next){
          hlR.animate({width: "100%"}, "slow").queue(function(next){
                hiv1R.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                  hiv2R.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
@@ -180,10 +181,10 @@ $("#btnQueryR").click(function(){
                })
                next();
              })
-             next();
-           })
-           next();
-         })
+        //      next();
+        //    })
+        //    next();
+        //  })
 
 
  }
