@@ -9,7 +9,7 @@ var x_barr;
 var y_barr;
 var widthr;
 var heightr;
-var xR = 3;
+var xR = 2;
 //var bar_chart = svg_left.append("bar");
 
 var xr = [-1, 0, 1, 2, 3, 4, 5, 6];
