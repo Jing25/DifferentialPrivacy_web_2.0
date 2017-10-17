@@ -10,6 +10,7 @@ var chapter1_2_y_barr;
 var chapter1_2_widthr;
 var chapter1_2_heightr;
 var chapter1_2_xR = 2;
+var data = [];
 
 var chapter1_2_xr = [-1, 0, 1, 2, 3, 4, 5, 6];
 var chapter1_2_yr = [ 0, 0, 0, 0, 0, 0, 0, 0];
@@ -19,6 +20,68 @@ for (var i = 0; i < x.length; i++) {
     value: x[i],
     number: y[i]
   });
+}
+
+function plot_nd_line() {
+  var  width = chapter1_2_widthr;
+  var  height = chapter1_2_heightr*0.4;
+
+  getData();
+  var x = d3.scaleLinear()
+      .range([0, width]);
+
+  var y = d3.scaleLinear()
+      .range([height, 0]);
+
+
+  var line = d3.line()
+      .x(function(d) {
+          return x(d.q);
+      })
+      .y(function(d) {
+          return y(d.p);
+      });
+
+      x.domain(d3.extent(data, function(d) {
+          return d.q;
+      }));
+      y.domain(d3.extent(data, function(d) {
+          return d.p;
+      }));
+
+
+  cha1_2Svg_right.append("path")
+    .datum(data)
+    .attr("class", "line")
+    .attr("d", line)
+    .attr("transform", "translate(0, 10)")
+  cha1_2Svg_left.append("path")
+    .datum(data)
+    .attr("class", "line")
+    .attr("d", line)
+    .attr("transform", "translate(0, 10)")
+    // .attr("fill", "none")
+    // .attr("stroke": "steelblue")
+    // .attr("stroke-width": "2px");
+}
+
+function getData() {
+
+// loop to populate data array with
+// probabily - quantile pairs
+for (var i = 0; i < 100000; i++) {
+    q = normal() // calc random draw from normal dist
+    p = gaussian(q) // calc prob of rand draw
+    el = {
+        "q": q,
+        "p": p
+    }
+    data.push(el)
+};
+
+data.sort(function(x, y) {
+    return x.q - y.q;
+});
 }
 
 function chapter1_2_repeatr() {
@@ -121,6 +184,7 @@ function chapter1_2_redrawr() {
             .style("stroke", "rgb(55, 49, 46)")
             .style("fill", "rgb(55, 49, 46)")
       chapter1_2_drawBarr();
+      plot_nd_line();
     //  repeat();
 
   }

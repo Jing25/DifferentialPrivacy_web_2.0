@@ -29,7 +29,7 @@ $(document).ready(function() {
 
 })
 
-$('#btndel').click(function(){
+$('#btndelchp1-2').click(function(){
   $(".HIV1R").remove();
   $(".vlineR").animate({height:"120px"}).queue(function(){
     $(".neighboringDS").show(300);

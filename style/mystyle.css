@@ -159,3 +159,9 @@
   .neighboringDS {
     display: none;
   }
+
+  .line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 3px;
+}
