@@ -165,6 +165,8 @@ function chapter1_2_redraw() {
               .attr("height", chapter1_2_height + margin.top + margin.bottom)
               .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+      cha1_2Svg_left.selectAll("path").remove()
+
 
        chapter1_2_x_bar = d3.scaleBand().range([0, chapter1_2_width], .1),
        chapter1_2_y_bar = d3.scaleLinear().range([chapter1_2_height*0.5, 0]);

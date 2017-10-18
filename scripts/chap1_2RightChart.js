@@ -159,6 +159,8 @@ function chapter1_2_redrawr() {
               .attr("height", chapter1_2_heightr + margin.top + margin.bottom)
               .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+      cha1_2Svg_right.selectAll("path").remove()
+
 
        chapter1_2_x_barr = d3.scaleBand().range([0, chapter1_2_widthr], .1),
        chapter1_2_y_barr = d3.scaleLinear().range([chapter1_2_heightr*0.5, 0]);
@@ -191,5 +193,6 @@ function chapter1_2_redrawr() {
 
 
 chapter1_2_redrawr();
+
 
 window.addEventListener("resize", chapter1_2_redrawr);
