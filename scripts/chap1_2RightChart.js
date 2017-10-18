@@ -9,11 +9,13 @@ var chapter1_2_x_barr;
 var chapter1_2_y_barr;
 var chapter1_2_widthr;
 var chapter1_2_heightr;
-var chapter1_2_xR = 2;
-var data = [];
+var chapter1_2_xR = 3;
+var datar = [];
 
-var chapter1_2_xr = [-1, 0, 1, 2, 3, 4, 5, 6];
-var chapter1_2_yr = [ 0, 0, 0, 0, 0, 0, 0, 0];
+var chapter1_2_xr = [ -1, 0, 1, 2, 3, 4, 5, 6, 7];
+var chapter1_2_yr = [ 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+
 var chapter1_2_dataAnswerr = [];
 for (var i = 0; i < x.length; i++) {
   chapter1_2_dataAnswerr.push({
@@ -22,16 +24,19 @@ for (var i = 0; i < x.length; i++) {
   });
 }
 
-function plot_nd_line() {
+function plot_nd_liner() {
   var  width = chapter1_2_widthr;
   var  height = chapter1_2_heightr*0.4;
 
-  getData();
+  getDatar();
   var x = d3.scaleLinear()
       .range([0, width]);
 
   var y = d3.scaleLinear()
       .range([height, 0]);
+
+
+  var yAxis = d3.axisLeft(y);
 
 
   var line = d3.line()
@@ -42,44 +47,37 @@ function plot_nd_line() {
           return y(d.p);
       });
 
-      x.domain(d3.extent(data, function(d) {
+      x.domain(d3.extent(datar, function(d) {
           return d.q;
       }));
-      y.domain(d3.extent(data, function(d) {
+      y.domain(d3.extent(datar, function(d) {
           return d.p;
       }));
 
 
   cha1_2Svg_right.append("path")
-    .datum(data)
+    .datum(datar)
     .attr("class", "line")
     .attr("d", line)
     .attr("transform", "translate(0, 10)")
-  cha1_2Svg_left.append("path")
-    .datum(data)
-    .attr("class", "line")
-    .attr("d", line)
-    .attr("transform", "translate(0, 10)")
-    // .attr("fill", "none")
-    // .attr("stroke": "steelblue")
-    // .attr("stroke-width": "2px");
+
 }
 
-function getData() {
+function getDatar() {
 
 // loop to populate data array with
 // probabily - quantile pairs
 for (var i = 0; i < 100000; i++) {
     q = normal() // calc random draw from normal dist
-    p = gaussian(q) // calc prob of rand draw
+    p = gaussian(q, 2, 1) // calc prob of rand draw
     el = {
         "q": q,
         "p": p
     }
-    data.push(el)
+    datar.push(el)
 };
 
-data.sort(function(x, y) {
+datar.sort(function(x, y) {
     return x.q - y.q;
 });
 }
@@ -92,7 +90,8 @@ function chapter1_2_repeatr() {
     //        .transition()
     //        .duration(0);
     var x = normalRandomScaled(2,15)
-    //chapter1_2_xR = x;
+    //var x = normal();
+    chapter1_2_xR = x;
      chapter1_2_circler.attr("cx", (chapter1_2_x_barr(chapter1_2_dataAnswerr[x+1].value) + chapter1_2_x_barr.bandwidth()/2))
            .attr("cy", 10)
            .attr("r", 5)
@@ -184,7 +183,7 @@ function chapter1_2_redrawr() {
             .style("stroke", "rgb(55, 49, 46)")
             .style("fill", "rgb(55, 49, 46)")
       chapter1_2_drawBarr();
-      plot_nd_line();
+      plot_nd_liner();
     //  repeat();
 
   }

@@ -147,9 +147,9 @@
   overflow: hidden;
 }*/
 
-  .chapter {
+  /*.chapter {
     display: none;
-  }
+  }*/
 
   #d3_plots_left {
     width: 100%;

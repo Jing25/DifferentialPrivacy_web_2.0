@@ -10,15 +10,80 @@ var chapter1_2_y_bar;
 var chapter1_2_width;
 var chapter1_2_height;
 var chapter1_2_xL = 3;
+var data=[];
 
-var chapter1_2_x = [-1, 0, 1, 2, 3, 4, 5, 6];
-var chapter1_2_y = [ 0, 0, 0, 0, 0, 0, 0, 0];
+var chapter1_2_x = [ -1, 0, 1, 2, 3, 4, 5, 6, 7];
+var chapter1_2_y = [ 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var chapter1_2_dataAnswer = [];
 for (var i = 0; i < x.length; i++) {
   chapter1_2_dataAnswer.push({
     value: x[i],
     number: y[i]
   });
+}
+
+function plot_nd_line() {
+  var  width = chapter1_2_width;
+  var  height = chapter1_2_height*0.4;
+
+  getData();
+  var x = d3.scaleLinear()
+      .range([0, width]);
+
+  var y = d3.scaleLinear()
+      .range([height, 0]);
+
+
+  var yAxis = d3.axisLeft(y);
+
+
+  var line = d3.line()
+      .x(function(d) {
+          return x(d.q);
+      })
+      .y(function(d) {
+          return y(d.p);
+      });
+
+      x.domain(d3.extent(data, function(d) {
+          return d.q;
+      }));
+      y.domain(d3.extent(data, function(d) {
+          return d.p;
+      }));
+
+
+  // cha1_2Svg_left.append("g")
+  //   .attr("class", "y axis")
+  //   .attr("transform", "translate(20, 10)")
+  //   .call(yAxis);
+  cha1_2Svg_left.append("path")
+    .datum(data)
+    .attr("class", "line")
+    .attr("d", line)
+    .attr("transform", "translate(0, 10)")
+    // .attr("fill", "none")
+    // .attr("stroke": "steelblue")
+    // .attr("stroke-width": "2px");
+}
+
+function getData() {
+
+// loop to populate data array with
+// probabily - quantile pairs
+for (var i = 0; i < 100000; i++) {
+    q = normal() // calc random draw from normal dist
+    p = gaussian(q, 3, 1) // calc prob of rand draw
+    el = {
+        "q": q,
+        "p": p
+    }
+    data.push(el)
+};
+
+data.sort(function(x, y) {
+    return x.q - y.q;
+});
 }
 
 function chapter1_2_repeat() {
@@ -28,8 +93,11 @@ function chapter1_2_repeat() {
     //        .attr("r", 0)
     //        .transition()
     //        .duration(0);
+    //var x = normal();
     var x = normalRandomScaled(3,15)
     chapter1_2_xL = x;
+
+    console.log(x)
      chapter1_2_circle.attr("cx", (chapter1_2_x_bar(chapter1_2_dataAnswer[x+1].value) + chapter1_2_x_bar.bandwidth()/2))
            .attr("cy", 10)
            .attr("r", 5)
@@ -121,6 +189,7 @@ function chapter1_2_redraw() {
             .style("stroke", "rgb(55, 49, 46)")
             .style("fill", "rgb(55, 49, 46)")
       chapter1_2_drawBar();
+      plot_nd_line();
     //  repeat();
 
   }

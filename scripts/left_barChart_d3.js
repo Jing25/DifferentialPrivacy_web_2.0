@@ -12,8 +12,8 @@ var height;
 var xL = 3;
 //var bar_chart = svg_left.append("bar");
 
-var x = [-1, 0, 1, 2, 3, 4, 5, 6];
-var y = [ 0, 0, 0, 0, 0, 0, 0, 0];
+var x = [ -1, 0, 1, 2, 3, 4, 5, 6, 7];
+var y = [ 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var margin = {top: 0, right: 0, bottom: 20, left: 0};
 var dataAnswer = [];
 for (var i = 0; i < x.length; i++) {
@@ -25,12 +25,13 @@ for (var i = 0; i < x.length; i++) {
 
 function repeat() {
 
+    var x = xL+1
     //  circle.attr("cy", (height-5))
     //        .attr("cx", (x_bar(dataAnswer[4].value) + x_bar.bandwidth()/2))
     //        .attr("r", 0)
     //        .transition()
     //        .duration(0);
-     circle.attr("cx", (x_bar(dataAnswer[xL+1].value) + x_bar.bandwidth()/2))
+     circle.attr("cx", (x_bar(dataAnswer[x].value) + x_bar.bandwidth()/2))
            .attr("cy", 10)
            .attr("r", 5)
            .transition()
@@ -39,7 +40,7 @@ function repeat() {
            .on("end", drawBar);
 
          //drawBar();
-         dataAnswer[xL+1].number = dataAnswer[xL+1].number + 1;
+         dataAnswer[x].number = dataAnswer[x].number + 1;
          yAxis.ticks(4)
 
 }
@@ -125,6 +126,6 @@ function redraw() {
 
 
 
-redraw();
+//redraw();
 
 window.addEventListener("resize", redraw);

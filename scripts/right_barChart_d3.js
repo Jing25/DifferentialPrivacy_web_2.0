@@ -12,8 +12,8 @@ var heightr;
 var xR = 2;
 //var bar_chart = svg_left.append("bar");
 
-var xr = [-1, 0, 1, 2, 3, 4, 5, 6];
-var yr = [ 0, 0, 0, 0, 0, 0, 0, 0];
+var xr = [ -1, 0, 1, 2, 3, 4, 5, 6, 7];
+var yr = [ 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var dataAnswerr = [];
 for (var i = 0; i < x.length; i++) {
   dataAnswerr.push({
@@ -24,12 +24,13 @@ for (var i = 0; i < x.length; i++) {
 
 function repeat_R() {
 
+   var x = xR+1
     //  circle.attr("cy", (height-5))
     //        .attr("cx", (x_bar(dataAnswer[4].value) + x_bar.bandwidth()/2))
     //        .attr("r", 0)
     //        .transition()
     //        .duration(0);
-     circler.attr("cx", (x_barr(dataAnswerr[xR+1].value) + x_barr.bandwidth()/2))
+     circler.attr("cx", (x_barr(dataAnswerr[x].value) + x_barr.bandwidth()/2))
            .attr("cy", 10)
            .attr("r", 5)
            .transition()
@@ -38,7 +39,7 @@ function repeat_R() {
            .on("end", drawBar_R);
 
          //drawBar();
-         dataAnswerr[xR+1].number = dataAnswerr[xR+1].number + 1;
+         dataAnswerr[x].number = dataAnswerr[x].number + 1;
          yAxisr.ticks(4)
 
 }

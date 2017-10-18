@@ -14,66 +14,6 @@ var answerL = $("#answerL");
 var answerR = $("#answerR");
 var anim = $("#btnAnimation");
 
-$(document).ready(function() {
-
-  $("#btnChapter1_1").click(function() {
-    $(".chapter1_2").slideDown(300);
-  });
-  $("#btnChapter1_1").click(function() {
-    $("#btnChapter1_1").slideUp(300);
-  })
-
-})
-
-$('#btndel').click(function(){
-  $(".HIV1R").remove();
-  $(".vlineR").animate({height:"120px"}).queue(function(){
-    $(".neighboringDS").show(300);
-    $("#btndel").hide(300);
-    xR = 2;
-  })
-})
-
-function currentDiv(n) {
-  showDivs(slideIndex = n);
-}
-
-function currentDiv_complete(n) {
-  var bars = document.getElementsByClassName("navbar");
-  $(bars[n-1]).addClass("is-done");
-  showDivs(slideIndex = n+1);
-}
-
-function complete() {
-  var bars = document.getElementsByClassName("navbar");
-  bars[n].addClass("is-done");
-}
-
-function showDivs(n) {
-  var i;
-  var x = document.getElementsByClassName("chapter");
-  var dots = document.getElementsByClassName("navbar");
-  if (n > x.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = x.length}
-  for (i = 0; i < x.length; i++) {
-     x[i].style.display = "none";
-  }
-   for (i = 0; i < dots.length; i++) {
-     dots[i].className = dots[i].className.replace(" current", "");
-   }
-  x[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " current";
-
-
-  //dots[slideIndex-1].className.replace("w3-grey", "w3-black")
-}
-
-function next(n) {
-  var btn = document.getElementsByClassName("btn_next");
-  var next = document.getElementsByClassName("next");
-  $(next[n-1]).fadeIn(300)
-  $(btn[n-1]).hide(300)
-}
 
 
 anim.click(function(){
