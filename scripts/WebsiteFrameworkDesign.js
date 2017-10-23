@@ -5,8 +5,8 @@ function setButtonValue() {
    var btn_r = document.getElementsByClassName("btnR");
    if (btn_r.length == btn_l.length) {
      for (var i = 0; i < btn_l.length; i++) {
-       $(btn_l[i]).val(i);
-       $(btn_r[i]).val(i+2);
+       $(btn_l[i]).val(i-1);
+       $(btn_r[i]).val(i+1);
      }
    }
    else {

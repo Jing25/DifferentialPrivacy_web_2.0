@@ -16,7 +16,7 @@
 
 </head>
 
-<body class="w3-light-grey" style="margin-bottom: 150px">
+<body class="w3-light-grey" style="margin-bottom: 200px">
 
 	<header class="w3-container w3-grey" >   <!--style="position: fixed; top: 0; width: 100%; z-index: 1"-->
 	  <h2 class="w3-text-black">Differential Privacy</h2>
@@ -57,7 +57,7 @@
 
 					<!-- content -->
 					<div class="w3-container w3-center w3-large">
-						<p class="w3-xlarge"> Why we need differential privacy?</p>
+						<p class="w3-xlarge"> Why do we need differential privacy?</p>
 
 						<p>In our daily life, privacy problem is everywhere. <br>Sometimes, we expose our privacte information without even noticing that:</p>
 						<!-- list of privacy -->
@@ -197,6 +197,19 @@
 					</div>
 					<!-- end content -->
 
+					<!-- Next and previous button -->
+					<div class="w3-container w3-right-align" style="margin-top: 150px">
+						<button class="btnL w3-btn w3-white w3-border w3-border-green w3-round-large w3-disabled"
+							onclick="" style="font-size: 25px; -ms-transform: rotate(-90deg);
+							-webkit-transform: rotate(-90deg);
+							transform: rotate(-90deg);">&#8679;</button>
+						<button class="btnR w3-btn w3-white w3-border w3-border-green w3-round-large"
+							onclick="currentDiv(this)" style="font-size: 25px; -ms-transform: rotate(90deg);
+							-webkit-transform: rotate(90deg);
+							transform: rotate(90deg);">&#8679;</button>
+					</div>
+					<!-- end next and previous button -->
+
 				</div>
 				<!-- end bacground -->
 
@@ -218,7 +231,7 @@
 					</div>
 
 					<!-- Next and previous button -->
-					<div class="w3-section w3-right-align">
+					<div class="w3-container w3-right-align" style="margin-top: 150px">
 						<button class="btnL w3-btn w3-white w3-border w3-border-green w3-round-large"
 							onclick="currentDiv(this)" style="font-size: 25px; -ms-transform: rotate(-90deg);
 							-webkit-transform: rotate(-90deg);
@@ -654,7 +667,7 @@
 				<!-- end chapter 1-2 -->
 
 					<!-- right and left button -->
-					<div class="w3-section w3-right-align">
+					<div class="w3-container w3-right-align" style="margin-top: 150px">
 						<button class="btnL w3-btn w3-white w3-border w3-border-green w3-round-large"
 							onclick="currentDiv(this)" style="font-size: 25px; -ms-transform: rotate(-90deg);
 							-webkit-transform: rotate(-90deg);
@@ -685,7 +698,7 @@
 					</div> -->
 
 					<!-- Next and previous button -->
-					<div class="w3-section w3-right-align">
+					<div class="w3-container w3-right-align" style="margin-top: 150px">
 						<button class="btnL w3-btn w3-white w3-border w3-border-green w3-round-large"
 							onclick="currentDiv(this)" style="font-size: 25px; -ms-transform: rotate(-90deg);
 							-webkit-transform: rotate(-90deg);
@@ -716,12 +729,12 @@
 					</div> -->
 
 					<!-- Next and previous button -->
-					<div class="w3-section w3-right-align w3-disabled">
+					<div class="w3-container w3-right-align" style="margin-top: 150px">
 						<button class="btnL w3-btn w3-white w3-border w3-border-green w3-round-large"
 							onclick="currentDiv(this)" style="font-size: 25px; -ms-transform: rotate(-90deg);
 							-webkit-transform: rotate(-90deg);
 							transform: rotate(-90deg);">&#8679;</button>
-						<button class="btnR w3-btn w3-white w3-border w3-border-green w3-round-large"
+						<button class="btnR w3-btn w3-white w3-border w3-border-green w3-round-large w3-disabled"
 							onclick="currentDiv(this)" style="font-size: 25px; -ms-transform: rotate(90deg);
 							-webkit-transform: rotate(90deg);
 							transform: rotate(90deg);">&#8679;</button>
@@ -742,13 +755,6 @@
 
 </body>
 
-<script>
-	// var chapter = document.getElementsByClassName("chapter");
-  // $(".chapter").hide()
-	// $(chapter[0]).show()
-	// setNarBarValue();
-	// setButtonValue();
-</script>
 
 <script src="scripts/gaussianRandom.js"></script>
 <script src="scripts/WebsiteFrameworkDesign.js"></script>
