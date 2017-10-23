@@ -1,8 +1,15 @@
+@font-face{
+	font-family: 'FuturaHandwritten';
+	font-style: normal;
+	src: url('FuturaHandwritten.ttf') format('truetype');
+}
+
 * {
   box-sizing: border-box;
 }
 .w3-myfont {
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  /*font-family: "Comic Sans MS", cursive, sans-serif;*/
+  font-family: "FuturaHandwritten";
 }
 
 .StepProgress {
@@ -143,13 +150,15 @@
     display: block;
   }
 
-  /*html, body {
-  overflow: hidden;
-}*/
+  body {
+   max-width: 2000px;
+   font-family: "FuturaHandwritten";
+   /*line-height: 40px;*/
+  }
 
-  /*.chapter {
+  .chapter {
     display: none;
-  }*/
+  }
 
   #d3_plots_left {
     width: 100%;
@@ -164,4 +173,24 @@
     fill: none;
     stroke: steelblue;
     stroke-width: 3px;
+  }
+
+  /* unvisited link */
+a:link {
+    color: green;
+}
+
+/* visited link */
+a:visited {
+    color: red;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
 }

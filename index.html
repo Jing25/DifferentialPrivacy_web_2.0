@@ -3,19 +3,23 @@
 <head>
 	<title>Differential Privacy</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<script src="scripts/es6-promise.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="scripts/jquery.animate-colors.js"></script>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style/mystyle.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 
 <body class="w3-light-grey" style="margin-bottom: 150px">
 
 	<header class="w3-container w3-grey" >   <!--style="position: fixed; top: 0; width: 100%; z-index: 1"-->
-	  <h2 class="w3-text-black w3-myfont">Differential Privacy</h2>
+	  <h2 class="w3-text-black">Differential Privacy</h2>
 	  <p>An interactive website tells you differential privacy</p>
 	</header>
 
@@ -25,7 +29,7 @@
 
 <!-- Navigation Bar -->
 			<div class="w3-third w3-container">
-				<ul class="StepProgress w3-myfont">
+				<ul class="StepProgress">
 					<li class="navbar StepProgress-item current" onclick="currentDiv(this)"><b>Background<b></li>
 					<li class="navbar StepProgress-item" onclick="currentDiv(this)"><b>Definition of Differential Privacy<b></li>
 					<!-- <li class="navbar StepProgress-item s is-done">Privacy is everywhere</li>
@@ -49,25 +53,155 @@
 			<div class="w3-twothird flowsteps w3-container">
 
 				<!-- Background -->
-				<div class="w3-section w3-myfont chapter" style="display: block">
+				<div class="w3-section chapter" style="display: block">
 
 					<!-- content -->
-					<div class="w3-container w3-large w3-center">
-						<p> Add background and website operations here</p>
-						<p>(text + table, no interaction and animation)...</p>
-					</div>
+					<div class="w3-container w3-center w3-large">
+						<p class="w3-xlarge"> Why we need differential privacy?</p>
 
-					<!-- continue button -->
-					<div class="w3-container w3-center">
-						<button class="w3-btn w3-white w3-border w3-border-green w3-round-large btn_next"
-							onclick="complete(this)" >START</button>
+						<p>In our daily life, privacy problem is everywhere. <br>Sometimes, we expose our privacte information without even noticing that:</p>
+						<!-- list of privacy -->
+						<div class="w3-container" style="width: 60%; margin: auto;">
+							<ul class="w3-ul w3-left-align">
+								<li>
+									<div class="w3-container w3-cell">
+										<p class="fa fa-arrow-right w3-xlarge w3-text-green"></p>
+									</div>
+									<div class="w3-container w3-cell">
+										<p>Government, company, research centers collect personal information and analyze them</p>
+									</div>
+								</li>
+								<li>
+									<div class="w3-container w3-cell">
+										<p class="fa fa-arrow-right w3-xlarge w3-text-green"></p>
+									</div>
+									<div class="w3-container w3-cell">
+										<p>Social networks: Facebook, LinkedIn</p>
+									</div>
+								</li>
+								<li>
+									<div class="w3-container w3-cell">
+										<p class="fa fa-arrow-right w3-xlarge w3-text-green"></p>
+									</div>
+									<div class="w3-container w3-cell">
+										<p>YouTube & Amazon use viewing/buying records for recommendations</p>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<!-- end list -->
+
+						<p>Let's see an example !</p>
+						<!-- Netflix table -->
+						<!-- table -->
+						<table class="w3-table-all w3-medium" style="width: 40%; margin: auto;">
+							<tr class="w3-green">
+								<th>Customer ID</th>
+								<th>Rating</th>
+								<th>Date</th>
+							</tr>
+							<tr>
+								<td>1488844</td>
+								<td>3</td>
+								<td>2005-09-06</td>
+							</tr>
+							<tr>
+								<td>822109</td>
+								<td>5</td>
+								<td>2005-05-13</td>
+							</tr>
+							<tr>
+								<td>885013</td>
+								<td>4</td>
+								<td>2005-10-19</td>
+							</tr>
+							<tr>
+								<td>30878</td>
+								<td>4</td>
+								<td>2005-12-26</td>
+							</tr>
+							<tr>
+								<td>...</td>
+								<td>...</td>
+								<td>...</td>
+							</tr>
+						</table>
+						<!-- end dataset -->
+						<p style="line-height: 40px;">
+							This is the FIRST FIVE ROWS of the rating of movie
+							<q>Dinosaur Planet</q> <br>
+							from Netflix Prize Dataset <br>
+							Netflix released this dataset containing 100,480,507 <br>
+							<span class="w3-xlarge">Movie Ratings</span> and <span class="w3-xlarge">Their Dates</span> <br>
+							created by 480,189 Netflix subscribers <br>
+							In 2006, Netflix organized an algorithm competition <br>
+							using this data to predict movie ratings. <br>
+						</p>
+						<!-- first continue button -->
+						<div class="w3-container w3-center">
+							<button class="w3-btn w3-white w3-border w3-border-green w3-round-large" onclick="next(this, 'next', [bg01])">continue</button>
+						</div>
+						<!-- end first continue button -->
+
+						<!-- second continue button -->
+						<div class="w3-container w3-center next" id="bg01" style="display: none;">
+							<p>Do you feel safe enough (your privacy is preserved) if your data is in this dataset?</p>
+							<button class="w3-btn w3-white w3-border w3-border-green w3-round-large btn_bg" onclick="yesAno('btn_bg', 'next', [bg02, bg04])">YES!</button>
+							<button class="w3-btn w3-white w3-border w3-border-green w3-round-large btn_bg" onclick="yesAno('btn_bg', 'next', [bg03, bg04])">NO!</button>
+						</div>
+						<!-- end second continue button -->
+
+						<p class="next" id="bg02" style="line-height: 40px; display: none;">This dataset is anonymous and only shows Custom ID, Movie Rating and Rating Date<br>
+							It seems safe enough and no one can infer your information <br>
+							However... You're WORNG
+						</p>
+						<p class="next" id="bg03" style="line-height: 40px; display: none;">This dataset is anonymous and only shows Custom ID, Movie Rating and Rating Date<br>
+							It seems safe enough and no one can infer your information <br>
+							But, You're RIGHT
+						</p>
+
+						<div class="w3-container next" id="bg04" style="display: none;">
+							<p>Using the <a href="http://www.imdb.com/title/tt0389605/reviews?ref_=tt_ql_3" target="_blank">Internet Movie Database (IMDb)</a>
+								as the source of background knowledge (as is shown below)</p>
+							<p style="line-height: 40px;">
+								<a href="https://www.cs.utexas.edu/~shmat/shmat_oak08netflix.pdf" target="_blank">A. Narayanan and V. Shmatikov</a>
+								successfully identified the Netflix records of known users <br>
+								uncovering their apparent political preferences and other potentially sensitive information.
+							</p>
+							<div class="w3-card-2" style="width: 60%; margin: auto;">
+								<img src="IMDb.png" alt="no image" style="width: 100%">
+							</div>
+
+							<p style="line-height: 40px;">
+								Becasue of the <span class="w3-xlarge">Privacy Problem</span>, this competition quitted in 2010 <br>
+								Netflix payed a large amount of fines for this.
+							</p>
+							<!-- second continue button -->
+							<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
+							onclick="next(this, 'next', [bg05])">continue</button>
+
+
+						</div>
+
+						<div class="w3-container next" id="bg05" style="line-height: 40px; display: none;">
+							<p>
+								Anonymity does NOT mean privacy, since auxiliary information can help adversary to break anonymity <br>
+								The key for pravicy protecting is to mask the property of any individuals <br>
+								This is why we need DIFFERENTIAL PRIVACY <br>
+								Press "START", let's learn Differential Privacy together with vivid examples!
+							</p>
+							<button class="w3-btn w3-white w3-border w3-border-green w3-round-large btn_next"
+								onclick="complete(this)" >START</button>
+						</div>
+
 					</div>
+					<!-- end content -->
 
 				</div>
 				<!-- end bacground -->
 
 				<!-- Chapter1 -->
-				<div class="w3-container w3-myfont chapter">
+				<div class="w3-container chapter">
 					<!-- content -->
 
 					<div class="w3-display-container" style="height: 300px;">
@@ -99,7 +233,7 @@
 
 
 				<!-- Chapter 1-1 -->
-				<div class="w3-container w3-myfont chapter">
+				<div class="w3-container chapter">
 						<div class="w3-center w3-large">
 							<p>You can perform a query "How many peopel have HIV?" on the dataset D1 (table) below by pressing "Query" button.</p>
 							<p>What's the result?</p>
@@ -323,7 +457,7 @@
 					<!-- end chapter1-1 content -->
 
 				<!-- Chapter 1-2 -->
-					<div class="w3-container w3-myfont">
+					<div class="w3-container">
 
 						<div class="w3-row w3-container nextchap1-2" id="A1" style="margin-top:30px; display: none;">
 							<!-- Left side start -->
@@ -535,7 +669,7 @@
 				<!-- end Chapter1 -->
 
 				<!-- Chapter2 -->
-				<div class="w3-container w3-myfont chapter">
+				<div class="w3-container chapter">
 					<!-- content -->
 
 					<div class="w3-display-container" style="height: 300px;">
@@ -566,7 +700,7 @@
 				<!-- end chapter 2 -->
 
 				<!-- Chapter3 -->
-				<div class="w3-container w3-myfont chapter">
+				<div class="w3-container chapter">
 					<!-- content -->
 
 					<div class="w3-display-container" style="height: 300px;">

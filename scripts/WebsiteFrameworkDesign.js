@@ -98,10 +98,30 @@ function next(n, cn, id) {
   $(n).hide(300);
 }
 
+//next button (this, classname, id)
+function yesAno(n, cn, id) {
+  var next = document.getElementsByClassName(cn);
+  var btn = document.getElementsByClassName(n);
+  console.log(btn)
+
+  for (var i = 0; i < id.length; i++) {
+    index = indexInClass(cn, id[i]);
+    $(next[index]).fadeIn(300);
+    $(next[index]).fadeIn(300, function() {
+      $(this).css('visibility', 'visible')
+    });
+  }
+  // for (var i = 0; i < id.length; i++) {
+  //   $(btn[i]).hide(300);
+  // }
+  $(btn[0]).hide(300);
+  $(btn[1]).hide(300);
+}
+
 // main
 var chapter = document.getElementsByClassName("chapter");
-$(".chapter").hide()
-$(chapter[0]).show()
+// $(".chapter").hide()
+// $(chapter[0]).show()
 setNarBarValue();
 setButtonValue();
 setCompleteValue();
