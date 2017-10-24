@@ -225,16 +225,16 @@
 
 					<!-- content -->
 					<div class="w3-container w3-large w3-center">
-						<p style="line-height: 40px;">
+						<p style="line-height: 40px; width: 70%; margin: auto;">
 							<span class="w3-xlarge">This</span> tutorial is based on the interactive statistical database scenario <br>
 							That means we assume query of a dataset is the only way that adversary can get information from the dataset <br>
 						</p>
 						<div class="w3-card-2" style="width: 50%; margin: auto;">
 							<img src="images/query.png" alt="no image" style="width: 100%">
 						</div>
-						<p style="line-height: 40px; width: 70%; margin: auto;">As is shown in the figure, the adversary can perform any queries on the dataset D
+						<p style="line-height: 40px; width: 70%; margin: auto;">As is shown in the figure, the adversary can perform any queries on the dataset D,
+							and the system will return an answer to the adversary.
 							(query: a function of the dataset, such as how many people are there in the dataset? What's the total age of the people within the dataset? ...)
-							, and the system will return an answer to the adversary.
 						</p>
 						<!-- second continue button -->
 						<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
@@ -242,8 +242,8 @@
 
 						<div class="w3-container next" id="ch1_01" style="line-height: 40px; width: 70%; margin: auto; display: none;">
 							<p>Although privacy-preserving data analysis has had a long history, there is no robust and mathematically rigorous definition of privacy.
-								Also, there's no a class of algorithms that satisfy this definition. Now, differential privacy came into being, filled this blank
-								and made a big progress in this field.
+								Also, there's no a class of algorithms that satisfy this definition. <br>
+								DIFFERENTIAL PRIVACY is such a definition. It filled this blank and made a big progress in this field.
 							</p>
 							<!-- second continue button -->
 							<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
@@ -253,14 +253,14 @@
 
 						<div class="w3-container" style="line-height: 40px; width: 70%; margin: auto;">
 							<div class="next" id="ch1_02" style="display: none">
-								<p class="w3-left-align next">Differential Privacy introduces a new idea about "privacy-preserving": when do you feel "safe" to participate in a survey?</p>
+								<p class="next">Differential Privacy introduces a new idea about "privacy-preserving": when do you feel "safe" to participate in a survey?</p>
 								<!-- second continue button -->
 								<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
 								onclick="next(this, 'next', [ch1_03])">continue</button>
 							</div>
 							<div class="next" id="ch1_03" style="display: none">
-								<p class="w3-left-align">&nbsp; &nbsp;- If no matter you participate in the survey or not, data analysis shows the same results,
-									then you might feel safe to take the survey.</p>
+								<p>&nbsp; &nbsp;- If no matter you participate in the survey or not, data analysis shows the same results,
+									then you might think you're safe and your privacy is preserved.</p>
 									<!-- second continue button -->
 									<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
 									onclick="next(this, 'next', [ch1_04])">continue</button>
@@ -277,12 +277,12 @@
 								<div class="w3-card-2">
 									<img src="images/dp.png" alt="no image" style="width: 100%">
 								</div>
-								<p>Intuitively, the promise says that if we do the same study (ie. the same query in the graph above)
-									on two datasets varying by only one single row (dataset with you and without you, we call such datasets neighboring datasets),
-									the result should be similar enough.
+								<p>Intuitively, the promise says that for the same study (ie. the same query in this figure)
+									on two datasets varying by only one single row (ie. dataset with you and without you, we call such datasets neighboring datasets),
+									the answer (A and B) should be similar enough.
 								</p>
 								<p>This is the definition of differential privacy!</p>
-								<p>Any mechanism that can mask such difference caused by removing one single row in the dataset (ie. make the two result A and B similar),
+								<p>Any mechanism (usually means randomized function) that can mask such difference caused by removing one single row in the dataset (ie. make the two answer A and B similar ENOUGH),
 									we say this mechanism satisfy this definition.
 								</p>
 								<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
@@ -293,10 +293,10 @@
 						</div>
 
 						<div class="next" id="ch1_06" style="display:none">
-							<p>If this is not clear to you. DON'T WORRY! Let's see an example!</p>
+							<p>If you don't feel comfortable. DON'T WORRY! Let's see an example!</p>
 							<div class="w3-container w3-center">
 								<button class="w3-btn w3-white w3-border w3-border-green w3-round-large btn_next"
-									onclick="complete(this)" >Next</button>
+									onclick="complete(this)" >Next Part</button>
 							</div>
 						</div>
 
