@@ -59,12 +59,12 @@
 					<div class="w3-container w3-center w3-large">
 						<!-- <p class="w3-xlarge"><q cite="">Absolute Privacy Prevention is Impossibility</q></p> -->
 						<div class="w3-panel w3-leftbar w3-light-grey" style="width: 70%; margin: auto;">
-							 <p class="w3-xlarge w3-serif">
+							 <p class="w3-large w3-serif">
 							 <i>"Absolute Disclosure Prevention is Impossibility"</i></p>
 							 <p class="w3-right-align">Cynthia Dwork</p>
 						</div>
 
-						<p> <span class="w3-xxlarge">IN</span> our daily life, privacy problem is everywhere. <br>Sometimes, we expose our privacte information without even noticing that:</p>
+						<p> <span class="w3-xlarge">IN</span> our daily life, privacy problem is everywhere. <br>Sometimes, we expose our privacte information without even noticing that:</p>
 						<!-- list of privacy -->
 						<div class="w3-container" style="width: 60%; margin: auto;">
 							<ul class="w3-ul w3-left-align">
@@ -190,7 +190,7 @@
 
 						<div class="w3-container next" id="bg05" style="line-height: 40px; display: none;">
 							<p>
-								Anonymity does NOT mean privacy, since auxiliary information can help adversary to break anonymity <br>
+								Anonymity does NOT mean privacy, since auxiliary information can help adversary break anonymity <br>
 								In the Netflix Prize dataset, NOT two records are similar MORE THAN 50% <br>
 								This gives the adversaries chance to break the privacy <br>
 								The key for pravicy protecting is masking the property of any individuals <br>
@@ -232,7 +232,10 @@
 						<div class="w3-card-2" style="width: 50%; margin: auto;">
 							<img src="images/query.png" alt="no image" style="width: 100%">
 						</div>
-						<p>The adversary can ask any questions, any times as long as the system allowed. </p>
+						<p style="line-height: 40px; width: 70%; margin: auto;">As is shown in the figure, the adversary can perform any queries on the dataset D
+							(query: a function of the dataset, such as how many people are there in the dataset? What's the total age of the people within the dataset? ...)
+							, and the system will return an answer to the adversary.
+						</p>
 						<!-- second continue button -->
 						<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
 						onclick="next(this, 'next', [ch1_01])">Got it!</button>
@@ -825,7 +828,7 @@
 		</div>
 	</div> <!-- end main content -->
 
-	<footer class="w3-container w3-grey w3-padding-32" style="position: fixed; bottom: 0; width: 100%; margin-bottom: 0">
+	<footer class="w3-container w3-grey w3-padding-small" style="position: fixed; bottom: 0; width: 100%; margin-bottom: 0">
 		<p>An interactive website tells you differential privacy</p>
 		<p style="text-align: right"> Vidi </p>
 	</footer>
