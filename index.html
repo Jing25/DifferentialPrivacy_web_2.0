@@ -57,9 +57,14 @@
 
 					<!-- content -->
 					<div class="w3-container w3-center w3-large">
-						<p class="w3-xlarge"> Why do we need differential privacy?</p>
+						<!-- <p class="w3-xlarge"><q cite="">Absolute Privacy Prevention is Impossibility</q></p> -->
+						<div class="w3-panel w3-leftbar w3-light-grey" style="width: 70%; margin: auto;">
+							 <p class="w3-xlarge w3-serif">
+							 <i>"Absolute Disclosure Prevention is Impossibility"</i></p>
+							 <p class="w3-right-align">Cynthia Dwork</p>
+						</div>
 
-						<p>In our daily life, privacy problem is everywhere. <br>Sometimes, we expose our privacte information without even noticing that:</p>
+						<p> <span class="w3-xxlarge">IN</span> our daily life, privacy problem is everywhere. <br>Sometimes, we expose our privacte information without even noticing that:</p>
 						<!-- list of privacy -->
 						<div class="w3-container" style="width: 60%; margin: auto;">
 							<ul class="w3-ul w3-left-align">
@@ -169,7 +174,7 @@
 								uncovering their apparent political preferences and other potentially sensitive information.
 							</p>
 							<div class="w3-card-2" style="width: 60%; margin: auto;">
-								<img src="IMDb.png" alt="no image" style="width: 100%">
+								<img src="images/IMDb.png" alt="no image" style="width: 100%">
 							</div>
 
 							<p style="line-height: 40px;">
@@ -186,8 +191,10 @@
 						<div class="w3-container next" id="bg05" style="line-height: 40px; display: none;">
 							<p>
 								Anonymity does NOT mean privacy, since auxiliary information can help adversary to break anonymity <br>
-								The key for pravicy protecting is to mask the property of any individuals <br>
-								This is why we need DIFFERENTIAL PRIVACY <br>
+								In the Netflix Prize dataset, NOT two records are similar MORE THAN 50% <br>
+								This gives the adversaries chance to break the privacy <br>
+								The key for pravicy protecting is masking the property of any individuals <br>
+								DIFFERENTIAL PRIVACY can help us reach this goal<br>
 								Press "START", let's learn Differential Privacy together with vivid examples!
 							</p>
 							<button class="w3-btn w3-white w3-border w3-border-green w3-round-large btn_next"
@@ -215,20 +222,90 @@
 
 				<!-- Chapter1 -->
 				<div class="w3-container chapter">
-					<!-- content -->
 
-					<div class="w3-display-container" style="height: 300px;">
-						<div class="w3-container w3-display-middle w3-large">
-							<p> This Chapter includes two parts, the promises of DP and level of privacy</p>
-							<p> To be continue ...</p>
+					<!-- content -->
+					<div class="w3-container w3-large w3-center">
+						<p style="line-height: 40px;">
+							<span class="w3-xlarge">This</span> tutorial is based on the interactive statistical database scenario <br>
+							That means we assume query of a dataset is the only way that adversary can get information from the dataset <br>
+						</p>
+						<div class="w3-card-2" style="width: 50%; margin: auto;">
+							<img src="images/query.png" alt="no image" style="width: 100%">
 						</div>
+						<p>The adversary can ask any questions, any times as long as the system allowed. </p>
+						<!-- second continue button -->
+						<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
+						onclick="next(this, 'next', [ch1_01])">Got it!</button>
+
+						<div class="w3-container next" id="ch1_01" style="line-height: 40px; width: 70%; margin: auto; display: none;">
+							<p>Although privacy-preserving data analysis has had a long history, there is no robust and mathematically rigorous definition of privacy.
+								Also, there's no a class of algorithms that satisfy this definition. Now, differential privacy came into being, filled this blank
+								and made a big progress in this field.
+							</p>
+							<!-- second continue button -->
+							<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
+							onclick="next(this, 'next', [ch1_02])">continue</button>
+						</div>
+
+
+						<div class="w3-container" style="line-height: 40px; width: 70%; margin: auto;">
+							<div class="next" id="ch1_02" style="display: none">
+								<p class="w3-left-align next">Differential Privacy introduces a new idea about "privacy-preserving": when do you feel "safe" to participate in a survey?</p>
+								<!-- second continue button -->
+								<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
+								onclick="next(this, 'next', [ch1_03])">continue</button>
+							</div>
+							<div class="next" id="ch1_03" style="display: none">
+								<p class="w3-left-align">&nbsp; &nbsp;- If no matter you participate in the survey or not, data analysis shows the same results,
+									then you might feel safe to take the survey.</p>
+									<!-- second continue button -->
+									<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
+									onclick="next(this, 'next', [ch1_04])">continue</button>
+							</div>
+							<div class="next" id="ch1_04" style="display: none">
+								<p>Now you know: data holder uses "Differential Privacy" describing a promises that
+									"You will not be affected by allowing your data to be used in any study or analysis no matter how."</p>
+								<p>What does it mean?</p>
+								<!-- second continue button -->
+								<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
+								onclick="next(this, 'next', [ch1_05])">continue</button>
+							</div>
+							<div class="next" id="ch1_05" style="display:none">
+								<div class="w3-card-2">
+									<img src="images/dp.png" alt="no image" style="width: 100%">
+								</div>
+								<p>Intuitively, the promise says that if we do the same study (ie. the same query in the graph above)
+									on two datasets varying by only one single row (dataset with you and without you, we call such datasets neighboring datasets),
+									the result should be similar enough.
+								</p>
+								<p>This is the definition of differential privacy!</p>
+								<p>Any mechanism that can mask such difference caused by removing one single row in the dataset (ie. make the two result A and B similar),
+									we say this mechanism satisfy this definition.
+								</p>
+								<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
+								onclick="next(this, 'next', [ch1_06])">continue</button>
+
+							</div>
+
+						</div>
+
+						<div class="next" id="ch1_06" style="display:none">
+							<p>If this is not clear to you. DON'T WORRY! Let's see an example!</p>
+							<div class="w3-container w3-center">
+								<button class="w3-btn w3-white w3-border w3-border-green w3-round-large btn_next"
+									onclick="complete(this)" >Next</button>
+							</div>
+						</div>
+
+
 					</div>
+					<!-- end content -->
 
 					<!-- continue button -->
-					<div class="w3-container w3-center">
+					<!-- <div class="w3-container w3-center">
 						<button class="w3-btn w3-white w3-border w3-border-green w3-round-large btn_next"
 							onclick="complete(this)" >Next Chapter</button>
-					</div>
+					</div> -->
 
 					<!-- Next and previous button -->
 					<div class="w3-container w3-right-align" style="margin-top: 150px">
