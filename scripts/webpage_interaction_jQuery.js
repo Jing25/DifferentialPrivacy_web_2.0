@@ -39,8 +39,8 @@ function loop() {
               hiv3R.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                 vlR.animate({height: "100%"}, "slow");
                 vlL.animate({height: "100%"}, "slow").queue(function(next){
-                     //svg_chapter03:repeat();
-                     repeat();
+                     svg_chapter03:repeat();
+                     //repeat();
                      repeat_R();
                      $(this).queue(function(next){
                        answerR.attr("value", "Answer = " + xR)
@@ -89,22 +89,23 @@ $("#btnQueryL").click(function(){
 
  function press() {
    //query.animate({query.addClass("w3-green")});
-    //  queryL.addClass("w3-green").delay(200).queue(function(next){
-    //    queryL.removeClass('w3-green').queue(function(next){
+    //  queryR.addClass("w3-green").delay(200).queue(function(next){
+    //    queryR.removeClass('w3-green').queue(function(next){
          hlL.animate({width: "100%"}, "slow").queue(function(next){
                hiv1L.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                  hiv2L.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                    hiv3L.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                      vlL.animate({height: "100%"}, "slow").queue(function(next){
-                      //svg_chapter03:repeat();
-                      repeat();
+                      //repeat_R();
+                      svgL1.update();
                       $(this).queue(function(next){
-                       answerL.attr("value", "Answer = " + xL).delay(2300).queue(function(next) {
+                       answerL.attr("value", "Answer = " + 2).delay(2300).queue(function(next) {
                          hiv2L.removeAttr("style").delay(1200);
                          hiv1L.removeAttr("style").delay(1200);
                          hiv3L.removeAttr("style").delay(1200);
                          hlL.css({"width": "0%"});
                          vlL.css({"height": "0%"});
+                         replace("nextchap1-1",[ch3_02], [ch3_04, two]);
                            next();
                          })
                          next();
@@ -142,9 +143,10 @@ $("#btnQueryR").click(function(){
                  hiv2R.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                    hiv3R.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                      vlR.animate({height: "100%"}, "slow").queue(function(next){
-                      repeat_R();
+                      //repeat_R();
+                      svgR1.update();
                       $(this).queue(function(next){
-                       answerR.attr("value", "Answer = " + xR).delay(2300).queue(function(next) {
+                       answerR.attr("value", "Answer = " + 2).delay(2300).queue(function(next) {
                          hiv2R.removeAttr("style").delay(1200);
                          hiv1R.removeAttr("style").delay(1200);
                          hiv3R.removeAttr("style").delay(1200);

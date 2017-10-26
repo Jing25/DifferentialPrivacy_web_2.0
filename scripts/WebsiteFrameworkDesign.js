@@ -34,12 +34,6 @@ function setCompleteValue() {
   }
 }
 
-//start button
-// function start(n) {
-//   var bars = document.getElementsByClassName("navbar");
-//   $(bars[n-1]).addClass("is-done");
-//   showDivs(slideIndex = n);
-// }
 
 function complete(n) {
   var num = +$(n).val();
@@ -71,15 +65,15 @@ function showDivs(n) {
   //x[slideIndex-1].style.display = "block";
   $(x[slideIndex]).show();
   if (slideIndex == 2) {
-    redraw();
-    redraw_R();
-    chapter1_2_redrawr();
-    chapter1_2_redraw();
+    // svgL1 = chapter03_draw(svg_l1, "d3_plots_L1", 0, 3, data_L1);
+    // svgR1 = chapter03_draw(svg_r1, "d3_plots_R1", 0, 2, data_R1);
+  //   svgL1 = chapter03_draw("d3_plots_L1", 0, 3, data_L1);
+  //   svgR1 = chapter03_draw("d3_plots_R1", 0, 2, data_R1);
+  //   svgL2 = chapter03_draw("d3_plots_L2", 1, 3, data_L2);
+  //   svgR2 = chapter03_draw("d3_plots_R2", 1, 2, data_R2);
+  //   updateData();
   }
 
-  //redraw_R();
-  //chapter1_2_redrawr();
-  //chapter1_2_redraw();
   dots[slideIndex].className += " current";
   $(document).ready(function(){
     $(this).scrollTop(0);
@@ -102,6 +96,13 @@ function next(n, cn, id) {
       $(this).css('visibility', 'visible')
     });
   }
+  if (cn == "nextchap1-1" && id.includes(ch3_03)) {
+    svgL1 = chapter03_draw("d3_plots_L1", 0, 3, data_L1);
+    svgR1 = chapter03_draw("d3_plots_R1", 0, 2, data_R1);
+    svgL2 = chapter03_draw("d3_plots_L2", 1, 3, data_L2);
+    svgR2 = chapter03_draw("d3_plots_R2", 1, 2, data_R2);
+    updateData();
+  }
   //  window.scrollBy(0, 300);
 
   n.scrollIntoView({behavior: "smooth"})
@@ -114,6 +115,27 @@ function next(n, cn, id) {
   //
   // $window.scrollTop(scrollIt);
   $(n).hide(300);
+}
+
+function replace(cn, id1, id2) {
+  console.log("replace")
+  var next = document.getElementsByClassName(cn);
+  for (var i = 0; i < id2.length; i++) {
+    var index = indexInClass(cn, id2[i]);
+    $(next[index]).fadeIn(300);
+    $(next[index]).fadeIn(300, function() {
+      $(this).css('visibility', 'visible')
+    });
+  }
+
+  for (var i = 0; i < id1.length; i++) {
+    var index = indexInClass(cn, id1[i]);
+    $(next[index]).hide(300);
+    $(next[index]).hide(300, function() {
+      $(this).css('visibility', 'hidden')
+    });
+  }
+  //  window.scrollBy(0, 300);
 }
 
 //next button (this, classname, id)
@@ -131,16 +153,16 @@ function yesAno(n, cn, id) {
   //$(next)[indexInClass(cn, id[0])].scrollIntoView(true);
   //window.scrollBy(0, 300);
    //$(btn)[0].scrollIntoView(true)
-   var $window = $(window),
-       $element = $(btn[0]),
-       elementTop = $element.offset().top,
-       elementHeight = $element.height(),
-       viewportHeight = $window.height(),
-       scrollIt = elementTop - ((viewportHeight - elementHeight) / 2);
+  //  var $window = $(window),
+  //      $element = $(btn[0]),
+  //      elementTop = $element.offset().top,
+  //      elementHeight = $element.height(),
+  //      viewportHeight = $window.height(),
+  //      scrollIt = elementTop - ((viewportHeight - elementHeight) / 2);
+   //
+  //  $window.scrollTop(scrollIt);
 
-   $window.scrollTop(scrollIt);
-
-  //btn[0].scrollIntoView(true);
+  btn[0].scrollIntoView({behavior: "smooth"});
   $(btn[0]).hide(300);
   $(btn[1]).hide(300);
 }
@@ -149,6 +171,8 @@ function yesAno(n, cn, id) {
 var chapter = document.getElementsByClassName("chapter");
 // $(".chapter").hide()
 // $(chapter[0]).show()
+//var svg01 = redraw();
+//var svg_left = d3.select("#d3_plots_left").append("svg");
 setNarBarValue();
 setButtonValue();
 setCompleteValue();
