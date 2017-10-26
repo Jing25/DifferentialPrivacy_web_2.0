@@ -1,5 +1,4 @@
 
-
 var data_L1 = d3.range(31).map(function() { return [] });
 var data_L2 = d3.range(31).map(function() { return [] });
 var data_R1 = d3.range(31).map(function() { return [] });
@@ -14,8 +13,13 @@ function updateData() {
 
 }
 
-function chapter03_draw(svg_id, random, answer, data) {
+function clearData(btn, svg) {
+  btn = d3.range(31).map(function() { return [] });
+  svg.redraw(btn);
+}
 
+
+function chapter03_draw(svg_id, random, answer, data) {
 
         var svgID = "#" + svg_id;
         d3.select(svgID).selectAll("svg").remove();
@@ -32,6 +36,7 @@ function chapter03_draw(svg_id, random, answer, data) {
         var bins = 31;
         var min = -5;
         var max = 10;
+        var result;
 
 
 
@@ -40,9 +45,9 @@ function chapter03_draw(svg_id, random, answer, data) {
           x.push(x[i]+0.5);
         }
 
-        console.log(data_L1)
+
         generator = (function() {
-            var gen = d3.randomNormal(3, 2);
+            var gen = d3.randomNormal(answer, 2);
             return function() {
                 return ~~Math.max(min, Math.min(gen(), max));
             }
@@ -148,23 +153,22 @@ function chapter03_draw(svg_id, random, answer, data) {
 
         function update(target) {
           var counter = 0;
-        //      intervalId = setInterval(function() {
-                var number;
-                if(random == 1) number = generator();
-                else number = answer;
+              intervalId = setInterval(function() {
+                //var number;
+                if(random == 1) result = generator();
+                else result = answer;
                 var bin;
-                console.log("here")
+                console.log(result);
 
-                bin = (number + Math.abs(d3.min(x)))*2;
-                console.log(data);
-                data[bin].push(number);
-                console.log(data);
+                bin = (result + Math.abs(d3.min(x)))*2;
+                data[bin].push(result);
                 redraw();
                 //counter = counter + 1;
-          //      if (++counter >= target) {
-          //          clearInterval(intervalId);
-              //   }
-              // }, 800);
+               if (++counter >= target) {
+                   clearInterval(intervalId);
+                }
+                //result = number;
+              }, 800);
 
             }
 
@@ -172,7 +176,6 @@ function chapter03_draw(svg_id, random, answer, data) {
 
           var circle = binCols.selectAll("circle")
                   .data(function(d) { return d });
-                  console.log("here2")
 
             circle.enter().append("circle")
                   .style("stroke", "green")
@@ -189,9 +192,81 @@ function chapter03_draw(svg_id, random, answer, data) {
                   });
         }
 
+      function plot_nd_line() {
+
+          var heightf = height*0.33;
+          var datat = [];
+
+          datat = getData(answer);
+          console.log(datat)
+
+          var x = d3.scaleLinear()
+              .range([0, width]);
+
+          var y = d3.scaleLinear()
+              .range([heightf, 0]);
+
+
+          var yAxis = d3.axisLeft(y);
+
+
+          var line = d3.line()
+              .x(function(d) {
+                  return x(d.q);
+              })
+              .y(function(d) {
+                  return y(d.p);
+              });
+
+              // x.domain(d3.extent(datat, function(d) {
+              //     return d.q;
+              // }));
+              x.domain([-5, 10]);
+              y.domain(d3.extent(datat, function(d) {
+                  return d.p;
+              }));
+
+
+          svg_left.append("path")
+            .datum(datat)
+            .attr("class", "line")
+            .attr("d", line)
+            .attr("transform", "translate(0, 5)")
+
+          function getData(answer) {
+
+            // loop to populate data array with
+            // probabily - quantile pairs
+            var data = [];
+            var min = -5;
+            var max = 10;
+            console.log(answer)
+            for (var i = 0; i < 100000; i++) {
+                var a = normal() // calc random draw from normal dist
+                q = Math.max(min, Math.min(a, max))
+                p = gaussian(q, answer, 2) // calc prob of rand draw
+                el = {
+                    "q": q,
+                    "p": p
+                }
+                data.push(el);
+            };
+
+            data.sort(function(x, y) {
+                return x.q - y.q;
+            });
+
+            return data;
+          }
+
+        }
+
+
+
       // init
       if (random == 1) {
         drawVLine_random();
+        plot_nd_line();
       }
       else {
         drawVLine();
@@ -200,8 +275,9 @@ function chapter03_draw(svg_id, random, answer, data) {
 
       // return
        var chart = {
+         redraw: redraw,
          data: data,
-         answer: answer,
+         answer: result,
          update: update
        }
 

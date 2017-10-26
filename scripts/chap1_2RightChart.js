@@ -41,7 +41,7 @@ function plot_nd_liner() {
 
   var line = d3.line()
       .x(function(d) {
-          return x(d.q);
+          return x_bar(d.q);
       })
       .y(function(d) {
           return y(d.p);

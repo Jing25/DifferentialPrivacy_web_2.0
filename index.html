@@ -377,7 +377,8 @@
 									Pressing right hand side "Query", let's perform the same query on the dataset D2. Then you will get an answer 2.
 								</div>
 								<div class="w3-container nextchap1-1 w3-blue" id="ch3_07" style="display: none;">
-									Button "Query 10 Times" let you easily perform the same query on two datasets D1 and D2 together 10 times.
+									An alternative way for query is press "Querying 10 Times" button on the bottom, which let you easily perform the same query on two datasets D1 and D2 together for 10 times.
+									If you're tired of querying, press "continue" to move on.
 								</div>
 
 						 </div>
@@ -395,7 +396,7 @@
 											<div class="w3-row">
 												<!-- button -->
 												<div class="w3-col w3-left" style="width:10%; margin-top: 60px">
-													<button id="btnQueryL">Query</button>
+													<button class="w3-btn w3-white w3-border w3-border-grey w3-round-large" onclick="pressL1(1)" id="btnQueryL">Query</button>
 												</div>
 												<!-- table and downward line -->
 												<div class="w3-col w3-right" style="width:60%">
@@ -448,8 +449,11 @@
 													<!--button class="w3-btn w3-white w3-border w3-border-grey w3-round-large w3-display-middle"
 													  style="position: relative; top: 55px;" id="staAnimation" >Start Animation</button-->
 													<div class="w3-center" style="margin-top: 30px">
-														<input class="w3-btn w3-white w3-border w3-border-grey" type="button"
+														<input class="w3-white w3-border w3-border-grey" type="button"
 														   id="answerL" value="Answer = "></input>
+														 <div class="w3-section w3-center" >
+															 <button class="w3-button w3-green" onclick="clearData(data_L1, svgL1)">Clear Data</button>
+														 </div>
 												  </div>
 
 												</div>
@@ -472,7 +476,7 @@
 												<div class="w3-row">
 													<!-- button -->
 													<div class="w3-col w3-right" style="width:10%; margin-top: 60px;">
-														<button id="btnQueryR">Query</button>
+														<button class="w3-btn w3-white w3-round-large w3-border w3-border-grey" onclick="pressR1(1)" id="btnQueryR">Query</button>
 													</div>
 													<!-- table and downward line -->
 													<div class="w3-col w3-left" style="width:60%">
@@ -524,8 +528,11 @@
 
 														<div class="w3-container" id="d3_plots_R1" style="height: 350px"></div>
 														<div class="w3-center" style="margin-top: 30px">
-															<input class="w3-btn w3-white w3-border w3-border-grey" type="button"
+															<input class="w3-white w3-border w3-border-grey" type="button"
 															   id="answerR" value="Answer = "></input>
+															 <div class="w3-section w3-center" >
+																 <button class="w3-button w3-green" onclick="clearData(data_R1, svgR1)">Clear Data</button>
+															 </div>
 													  </div>
 
 													</div>
@@ -547,6 +554,7 @@
 										<div class="w3-rest nextchap1-1" id="two" style="display: none; margin-top: 50px">
 												<button class="w3-btn w3-white w3-border w3-border-green w3-round-large w3-display-middle nextchap1-1"
 													style="position: relative; top: 30px" id="ch3_06" onclick="replace('nextchap1-1', [ch3_04, ch3_06], [ch3_05, eight, one])">Delete Alice's Data</button>
+
 													<p class="nextchap1-1 w3-center w3-yellow" id="eight" style="display: none;">
 														These two datasets are neiboring datasets, only differing by removing of a single arbitary row </p>
 
@@ -558,40 +566,35 @@
 								<!-- the rest -->
 								<div class="w3-container">
 
-										<!-- first continue button -->
-										<div class="w3-container w3-center">
-											<button class="w3-btn w3-white w3-border w3-border-green w3-round-large" onclick="next(this, 'nextchap1-1', [two, four])">continue</button>
-										</div>
-										<!-- end first continue button -->
-
-										<div class="w3-container w3-center w3-large nextchap1-1" id="four" style="visibility: hidden">
-											<p>Now press "Delete Alice's Data" button to delete her data. You will get a new dataset D2</p>
-										</div>
-
 										<!-- animation button -->
-										<div class="w3-container w3-center nextchap1-1" id="three" style="margin-top: 10px; visibility: hidden;">
-											<input class="w3-btn w3-white w3-border w3-border-green w3-round-large" type="button"
-											  id="btnAnimation" data-default="Keep Querying" data-alt="Stop Querying" value="Keep Querying"></input>
-												<div class="w3-large">
-													<p>"Keep Querying" button let you keep performing the same query on both datasets</p>
-													<p>What do you get?</p>
+										<div class="w3-container w3-center nextchap1-1" id="three" style="margin-top: 10px; display: none;">
+											<input class="w3-btn w3-white w3-border w3-border-green w3-round-large nextchap1-1" type="button"
+											  onclick="pressLR1(1)" id="ch3_08" data-default="Keep Querying" data-alt="Stop Querying" value="Keep Querying"></input>
+
+												<div class="w3-section">
+													<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
+													onclick="next(this, 'nextchap1-1', [five])">continue</button>
 												</div>
-												<!-- second continue button -->
+
+										</div>
+
+										<div class="w3-center w3-large" style="line-height: 40px; width: 80%; margin: auto;">
+											<div class="w3-container w3-center  nextchap1-1" id="five" style="visibility: hidden;">
+
+													<p> Just as we thought, the system without any protection gives the true answer everytime: dataset with Alice has total three people who has HIV,
+														while dataset without Alice has two. We can infer that Alice has HIV by subtracting these two answers.
+													</P>
+													<p>From last chapter we know that Differential Privacy defines the situation that if we can mask such difference (i.e. make these two answers similar ENOUGH) by adding
+														a Differential Privacy mechanism (i.e. a randomized function), then we can not easily infer if Alice
+														has HIV or not.
+													</p>
+
+												<!-- third continue button -->
 												<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
-												onclick="next(this, 'nextchap1-1', [five])">continue</button>
-										</div>
-
-										<div class="w3-container w3-center nextchap1-1" id="five" style="visibility: hidden;">
-											<div class="w3-large">
-												<p> Everytime we get the same answer: dataset with Alice has three people who has HIV, while dataset without Alice has two. Thus, deleting Alice's data exposes
-													 the fact that she has HIV</p>
-												<p>What if we answer the questions by adding a noise?</P>
+												onclick="next(this, 'nextchap1-2', [A0, A1, A2, A3])">Here's how it works!</button>
 											</div>
-
-											<!-- third continue button -->
-											<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
-											onclick="next(this, 'nextchap1-2', [A1, A2, A3])">continue</button>
 										</div>
+
 
 								</div>
 								<!-- end the rest -->
@@ -603,7 +606,12 @@
 				<!-- Chapter 1-2 -->
 					<div class="w3-container">
 
+						<div class="w3-container w3-center w3-large w3-blue nextchap1-2" id="A0" style="line-height: 40px; width: 80%; margin: auto; display: none;">
+							You can play it as in previous example. A new button "Quick Query 50 times" provides you a quick way to perform queries
+							on these two datasets 50 times and give you a better view of the randomized process and results.
+						</div>
 						<div class="w3-row w3-container nextchap1-2" id="A1" style="margin-top:30px; display: none;">
+
 							<!-- Left side start -->
 							<div class="w3-col w3-left w3-container" style="width: 40%">
 
@@ -611,7 +619,7 @@
 								<div class="w3-row">
 									<!-- button -->
 									<div class="w3-col w3-left" style="width:10%">
-										<button id="btnQueryLchp1-2">Query</button>
+										<button class="w3-btn w3-white w3-round-large w3-border w3-border-grey" id="btnQueryLchp1-2">Query</button>
 									</div>
 									<!-- table and downward line -->
 									<div class="w3-col w3-right" style="width:60%">
@@ -663,7 +671,7 @@
 										<!--button class="w3-btn w3-white w3-border w3-border-grey w3-round-large w3-display-middle"
 											style="position: relative; top: 55px;" id="staAnimation" >Start Animation</button-->
 										<div class="w3-center" style="margin-top: 30px">
-											<input class="w3-btn w3-white w3-border w3-border-grey" type="button"
+											<input class="w3-white w3-border w3-border-grey" type="button"
 												 id="answerLchp1-2" value="Answer = "></input>
 										</div>
 
@@ -687,7 +695,7 @@
 								<div class="w3-row">
 									<!-- button -->
 									<div class="w3-col w3-right" style="width:10%">
-										<button id="btnQueryRchp1-2">Query</button>
+										<button class="w3-btn w3-white w3-round-large w3-border w3-border-grey" id="btnQueryRchp1-2">Query</button>
 									</div>
 									<!-- table and downward line -->
 									<div class="w3-col w3-left" style="width:60%">
@@ -738,7 +746,7 @@
 
 										<div class="w3-display-container" id="d3_plots_R2" style="height: 350px"></div>
 										<div class="w3-center" style="margin-top: 30px">
-											<input class="w3-btn w3-white w3-border w3-border-grey" type="button"
+											<input class="w3-white w3-border w3-border-grey" type="button"
 												 id="answerRchp1-2" value="Answer = "></input>
 										</div>
 
@@ -759,13 +767,15 @@
 							<div class="w3-rest">
 								<div class="w3-display-container" style="height: 700px">
 									<div class="w3-display-middle">
-										<p class="w3-yellow w3-center"> We add a normally distributed noise onto the true answer</p>
+										<p class="w3-yellow w3-center"> As an example, we add a normal distribution function in the system.
+											This leads to a larger possible answer range compared to only one possible answer before.
+										</p>
 										<div class="w3-center" style="font-size: 50px; transform: scale(2, 1);">&#8596;</div>
 									</div>
-
 								</div>
 
 							</div>
+
 							<!-- end of center -->
 						</div>
 
@@ -773,8 +783,9 @@
 						<!-- animation button -->
 						<div class="w3-container w3-center">
 							<div class="w3-container nextchap1-2" id="A2" style="margin-top: 30px; display: none">
-								<input class="w3-btn w3-white w3-border w3-border-green w3-round-large" type="button"
-									id="btnAnimationchp1-2" data-default="Keep Querying" data-alt="Stop Querying" value="Keep Querying"></input>
+								<input class="w3-btn w3-white w3-border w3-border-green w3-round-large" type="button" style="margin-right: 20px;"
+									id="btnAnimationchp1-2" data-default="Keep Querying" data-alt="Stop Querying" value="Querying 10 times"></input>
+								<button class="w3-btn w3-white w3-border w3-border-green w3-round-large" style="margin-left: 20px;" onclick="pressR2(50)">Quick Querying</button>
 							</div>
 
 							<!-- first continue button -->
@@ -784,12 +795,22 @@
 							<!-- end first continue button -->
 
 
-							<div class="w3-container nextchap1-2" id="A4" style="visibility: hidden;">
-								<p class="w3-large">By adding a normal distributed noise, we cannot get correct everytime. Thus, we don't know if Alice has HIV or not.</p>
-								<p class="w3-large">This promises Alice's privacy</p>
+							<div class="w3-container w3-large nextchap1-2" id="A4" style="line-height: 40px; width: 80%; margin: auto; display: none;">
+								<p>As we can see from this example, after we add a randomized function, the system starts to answer randomly based on the
+									function you added on. Some numbers have a higher probabilty to be answered (near the pick of the function in the green rectangle),
+									some will rarely to be answered (at the tails of the function). Thus, if we preform the queries many times, the answers should
+									have the same distribution (shape) as the function. To visualize the results, the answers are all rounded to integers, pratically,
+									any number within the range is a possible answer, such as 3.15, 2.9456, etc.
+									Hopefully you've already known what does a randomized function or differential privacy mechanism do: they mask the difference
+									between the same query on two neighboring datasets (i.e. dataset varying by only one single row) by adding a randomized noise
+									(it is this noise leads to the randomized answers in the example above).
+								</p>
+								<p>After knowing this. We've been able to move to the next step. You must remember that there's a word I mentioned several times,
+								similar ENOUGH. Yes, how similar the two result should be? Let's continue!
+								</p>
 								<!-- second continue button -->
 								<button class="w3-btn w3-white w3-border w3-border-green w3-round-large btn_next"
-								onclick="complete(this)">Next Chapter</button>
+								onclick="complete(this)">Next Page</button>
 							</div>
 						</div>
 
@@ -814,7 +835,7 @@
 
 					<div class="w3-display-container" style="height: 300px;">
 						<div class="w3-container w3-display-middle w3-large">
-							<p> To be continue ...</p>
+							<p> To be continue... </p>
 						</div>
 					</div>
 

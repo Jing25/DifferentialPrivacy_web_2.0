@@ -18,27 +18,6 @@ var animchp12 = $("#btnAnimationchp1-2");
 
 
 
-$(document).ready(function() {
-
-  $("#btnChapter1_1").click(function() {
-    $(".chapter1_2").slideDown(300);
-  });
-  $("#btnChapter1_1").click(function() {
-    $("#btnChapter1_1").slideUp(300);
-  })
-
-})
-
-$('#btndelchp1-2').click(function(){
-  $(".HIV1R").remove();
-  $(".vlineR").animate({height:"120px"}).queue(function(){
-    $(".neighboringDS").show(300);
-    $("#btndel").hide(300);
-    xR = 2;
-  })
-})
-
-
 animchp12.click(function(){
 
 var def = animchp12.data('default'),
@@ -118,9 +97,9 @@ queryLchp12.click(function(){
                  hiv2Lchp12.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                    hiv3Lchp12.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                      vlLchp12.animate({height: "100%"}, "slow").queue(function(next){
-                      chapter1_2_repeat();
+                      svgL2.update(1)
                       $(this).queue(function(next){
-                       answerLchp12.attr("value", "Answer = " + chapter1_2_xL).delay(2300).queue(function(next) {
+                       answerLchp12.attr("value", "Answer = " + svgL2.answer).delay(2300).queue(function(next) {
                          hiv2Lchp12.removeAttr("style").delay(1200);
                          hiv1Lchp12.removeAttr("style").delay(1200);
                          hiv3Lchp12.removeAttr("style").delay(1200);
@@ -163,9 +142,9 @@ queryRchp12.click(function(){
                  hiv2Rchp12.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                    hiv3Rchp12.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                      vlRchp12.animate({height: "100%"}, "slow").queue(function(next){
-                      chapter1_2_repeatr();
+                      svgR2.update(1)
                       $(this).queue(function(next){
-                       answerRchp12.attr("value", "Answer = " + chapter1_2_xR).delay(2300).queue(function(next) {
+                       answerRchp12.attr("value", "Answer = " + svgR2.answer).delay(2300).queue(function(next) {
                          hiv2Rchp12.removeAttr("style").delay(1200);
                          hiv1Rchp12.removeAttr("style").delay(1200);
                          hiv3Rchp12.removeAttr("style").delay(1200);
