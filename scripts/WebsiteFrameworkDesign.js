@@ -75,7 +75,9 @@ function showDivs(n) {
   chapter1_2_redrawr();
   chapter1_2_redraw();
   dots[slideIndex].className += " current";
-
+  $(document).ready(function(){
+    $(this).scrollTop(0);
+  })
   //dots[slideIndex-1].className.replace("w3-grey", "w3-black")
 }
 

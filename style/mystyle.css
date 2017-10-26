@@ -151,7 +151,8 @@
   }
 
   body {
-   max-width: 2000px;
+   /*max-width: 2000px;*/
+	 /*margin: auto;*/
    font-family: "FuturaHandwritten";
    /*line-height: 40px;*/
   }
