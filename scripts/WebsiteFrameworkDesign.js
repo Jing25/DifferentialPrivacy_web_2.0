@@ -89,14 +89,24 @@ function indexInClass(cn, id) {
 //next button (this, classname, id)
 function next(n, cn, id) {
   var next = document.getElementsByClassName(cn);
-
   for (var i = 0; i < id.length; i++) {
-    index = indexInClass(cn, id[i]);
+    var index = indexInClass(cn, id[i]);
     $(next[index]).fadeIn(300);
     $(next[index]).fadeIn(300, function() {
       $(this).css('visibility', 'visible')
     });
   }
+  //  window.scrollBy(0, 300);
+
+  n.scrollIntoView({behavior: "smooth"})
+  // var $window = $(window),
+  //     $element = $(n),
+  //     elementTop = $element.offset().top,
+  //     elementHeight = $element.height(),
+  //     viewportHeight = $window.height(),
+  //     scrollIt = elementTop - ((viewportHeight - elementHeight)*3 / 4);
+  //
+  // $window.scrollTop(scrollIt);
   $(n).hide(300);
 }
 
@@ -104,7 +114,6 @@ function next(n, cn, id) {
 function yesAno(n, cn, id) {
   var next = document.getElementsByClassName(cn);
   var btn = document.getElementsByClassName(n);
-  console.log(btn)
 
   for (var i = 0; i < id.length; i++) {
     index = indexInClass(cn, id[i]);
@@ -113,9 +122,19 @@ function yesAno(n, cn, id) {
       $(this).css('visibility', 'visible')
     });
   }
-  // for (var i = 0; i < id.length; i++) {
-  //   $(btn[i]).hide(300);
-  // }
+  //$(next)[indexInClass(cn, id[0])].scrollIntoView(true);
+  //window.scrollBy(0, 300);
+   //$(btn)[0].scrollIntoView(true)
+   var $window = $(window),
+       $element = $(btn[0]),
+       elementTop = $element.offset().top,
+       elementHeight = $element.height(),
+       viewportHeight = $window.height(),
+       scrollIt = elementTop - ((viewportHeight - elementHeight) / 2);
+
+   $window.scrollTop(scrollIt);
+
+  //btn[0].scrollIntoView(true);
   $(btn[0]).hide(300);
   $(btn[1]).hide(300);
 }
