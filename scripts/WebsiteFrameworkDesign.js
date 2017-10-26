@@ -70,10 +70,16 @@ function showDivs(n) {
    }
   //x[slideIndex-1].style.display = "block";
   $(x[slideIndex]).show();
-  redraw();
-  redraw_R();
-  chapter1_2_redrawr();
-  chapter1_2_redraw();
+  if (slideIndex == 2) {
+    redraw();
+    redraw_R();
+    chapter1_2_redrawr();
+    chapter1_2_redraw();
+  }
+
+  //redraw_R();
+  //chapter1_2_redrawr();
+  //chapter1_2_redraw();
   dots[slideIndex].className += " current";
   $(document).ready(function(){
     $(this).scrollTop(0);

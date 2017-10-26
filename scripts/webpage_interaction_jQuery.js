@@ -39,6 +39,7 @@ function loop() {
               hiv3R.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                 vlR.animate({height: "100%"}, "slow");
                 vlL.animate({height: "100%"}, "slow").queue(function(next){
+                     //svg_chapter03:repeat();
                      repeat();
                      repeat_R();
                      $(this).queue(function(next){
@@ -95,6 +96,7 @@ $("#btnQueryL").click(function(){
                  hiv2L.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                    hiv3L.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                      vlL.animate({height: "100%"}, "slow").queue(function(next){
+                      //svg_chapter03:repeat();
                       repeat();
                       $(this).queue(function(next){
                        answerL.attr("value", "Answer = " + xL).delay(2300).queue(function(next) {
