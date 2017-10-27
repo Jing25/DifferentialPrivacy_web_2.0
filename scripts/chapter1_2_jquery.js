@@ -41,8 +41,8 @@ function loop() {
               hiv3Rchp12.animate({'backgroundColor': 'rgba(42, 184, 30, 0.64)'}).queue(function(next){
                 vlRchp12.animate({height: "100%"}, "slow");
                 vlLchp12.animate({height: "100%"}, "slow").queue(function(next){
-                     chapter1_2_repeat();
-                     chapter1_2_repeatr();
+                  svgL2.update(1)
+                  svgR2.update(1)
                      $(this).queue(function(next){
                        answerRchp12.attr("value", "Answer = " + chapter1_2_xR)
                        answerLchp12.attr("value", "Answer = " + chapter1_2_xL).delay(2300).queue(function(next) {

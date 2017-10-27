@@ -347,7 +347,7 @@
 										<td>N</td>
 									</tr>
 								</table>
-								<p class="w3-center">Dataset D1</p>
+								<p class="w3-center" style="line-height: 15px;">Dataset D1</p>
 								<p>Now assume you're a hacker and you know Alice is in the first row of this dataset. You wants to know if Alice has HIV or not.
 								What would you do?</p>
 
@@ -355,8 +355,8 @@
 								onclick="next(this, 'nextchap1-1', [ch3_01])">continue</button>
 
 								<div class="nextchap1-1" id="ch3_01" style="display: none;">
-									<p>You can perform a query "How many people have HIV?" on dataset D1, and then peform another query "Excludeing the first row (i.e. Alice's data),
-										how many people have HIV?" on dataset D1. Then you will learn what you want from the changing of these two answers.</p>
+									<p>You need to perform a query "How many people have HIV?" on dataset D1, and then peform another query "Excludeing the first row (i.e. Alice's data),
+										how many people have HIV?" on dataset D1. Then you will learn if Alice has HIV from the difference of two answers.</p>
 									<p>Now, Let's try it!</p>
 
 									<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
@@ -371,10 +371,10 @@
 								<div class="w3-container nextchap1-1 w3-blue" id="ch3_04" style="display: none;">
 									To make the second query -- "Excludeing Alice's data, how many people have HIV?" easier to understand,
 									we literally delete the first row (Alice's data) in the dataset and create a new dataset D2.
-									Then we can just perform the same query on dataset D2.
+									Then we can perform the same query on dataset D2.
 								</div>
 								<div class="w3-container nextchap1-1 w3-green" id="ch3_05" style="display: none;">
-									Pressing right hand side "Query", let's perform the same query on the dataset D2. Then you will get an answer 2.
+									Pressing right hand side button "Query", performing the same query on the dataset D2, you will get an answer 2.
 								</div>
 								<div class="w3-container nextchap1-1 w3-blue" id="ch3_07" style="display: none;">
 									An alternative way for query is press "Querying 10 Times" button on the bottom, which let you easily perform the same query on two datasets D1 and D2 together for 10 times.
@@ -451,9 +451,9 @@
 													<div class="w3-center" style="margin-top: 30px">
 														<input class="w3-white w3-border w3-border-grey" type="button"
 														   id="answerL" value="Answer = "></input>
-														 <div class="w3-section w3-center" >
+														 <!-- <div class="w3-section w3-center" >
 															 <button class="w3-button w3-green" onclick="clearData(data_L1, svgL1)">Clear Data</button>
-														 </div>
+														 </div> -->
 												  </div>
 
 												</div>
@@ -470,7 +470,7 @@
 									  </div>  <!-- end of left side -->
 
 										<!-- right side start -->
-										<div class="w3-col w3-right w3-container nextchap1-1" id="one" style="width: 40%; visibility: hidden;">
+										<div class="w3-col w3-right w3-container nextchap1-1" id="one" style="width: 40%; display:none;">
 
 												<!-- button, line and table -->
 												<div class="w3-row">
@@ -530,9 +530,9 @@
 														<div class="w3-center" style="margin-top: 30px">
 															<input class="w3-white w3-border w3-border-grey" type="button"
 															   id="answerR" value="Answer = "></input>
-															 <div class="w3-section w3-center" >
+															 <!-- <div class="w3-section w3-center" >
 																 <button class="w3-button w3-green" onclick="clearData(data_R1, svgR1)">Clear Data</button>
-															 </div>
+															 </div> -->
 													  </div>
 
 													</div>
@@ -568,7 +568,7 @@
 
 										<!-- animation button -->
 										<div class="w3-container w3-center nextchap1-1" id="three" style="margin-top: 10px; display: none;">
-											<input class="w3-btn w3-white w3-border w3-border-green w3-round-large nextchap1-1" type="button"
+											<input class="w3-btn w3-white w3-border w3-border-green w3-round-large" type="button"
 											  onclick="pressLR1(1)" id="ch3_08" data-default="Keep Querying" data-alt="Stop Querying" value="Keep Querying"></input>
 
 												<div class="w3-section">
@@ -581,12 +581,11 @@
 										<div class="w3-center w3-large" style="line-height: 40px; width: 80%; margin: auto;">
 											<div class="w3-container w3-center  nextchap1-1" id="five" style="visibility: hidden;">
 
-													<p> Just as we thought, the system without any protection gives the true answer everytime: dataset with Alice has total three people who has HIV,
-														while dataset without Alice has two. We can infer that Alice has HIV by subtracting these two answers.
+													<p> Just as we thought, the system without any protection gives the true answer everytime: dataset with Alice has three people in total infected HIV,
+														while dataset without Alice has two. We can infer that Alice has HIV by subtracting these two.
 													</P>
-													<p>From last chapter we know that Differential Privacy defines the situation that if we can mask such difference (i.e. make these two answers similar ENOUGH) by adding
-														a Differential Privacy mechanism (i.e. a randomized function), then we can not easily infer if Alice
-														has HIV or not.
+													<p>From last chapter we know that Differential Privacy defines privacy as able to mask such difference (i.e. generate similar ENOUGH answers) by adding
+														a Differential Privacy mechanism (i.e. a randomized function) into the system. This will protect Alice's privacy.
 													</p>
 
 												<!-- third continue button -->
@@ -765,13 +764,19 @@
 
 							 <!-- center -->
 							<div class="w3-rest">
-								<div class="w3-display-container" style="height: 700px">
+								<!-- <div class="w3-display-container" style="height: 700px">
 									<div class="w3-display-middle">
 										<p class="w3-yellow w3-center"> As an example, we add a normal distribution function in the system.
 											This leads to a larger possible answer range compared to only one possible answer before.
 										</p>
 										<div class="w3-center" style="font-size: 50px; transform: scale(2, 1);">&#8596;</div>
 									</div>
+								</div> -->
+								<div class="w3-container w3-center" style="margin-top: 250px;">
+									<p class="w3-yellow"> As an example, we add a normal distribution function in the system.
+										This leads to a larger possible answer range compared to only one possible answer before.
+									</p>
+									<div style="font-size: 50px; transform: scale(2, 1); margin-top: 100px;">&#8596;</div>
 								</div>
 
 							</div>
@@ -796,17 +801,19 @@
 
 
 							<div class="w3-container w3-large nextchap1-2" id="A4" style="line-height: 40px; width: 80%; margin: auto; display: none;">
-								<p>As we can see from this example, after we add a randomized function, the system starts to answer randomly based on the
+								<p>As we can see from this example, after we add a randomized function, the system starts to answer queries randomly based on the
 									function you added on. Some numbers have a higher probabilty to be answered (near the pick of the function in the green rectangle),
-									some will rarely to be answered (at the tails of the function). Thus, if we preform the queries many times, the answers should
-									have the same distribution (shape) as the function. To visualize the results, the answers are all rounded to integers, pratically,
-									any number within the range is a possible answer, such as 3.15, 2.9456, etc.
-									Hopefully you've already known what does a randomized function or differential privacy mechanism do: they mask the difference
+									some will rarely be answered (at the tails of the function). If we preform the same queries many times, the answers should
+									form the same distribution (shape) as the function. To visualize the results, the answers are all rounded to integers, pratically,
+									any number within the range is a possible answer, such as 3.15, 2.9456, etc.<br>
+									Hopefully you've already known what does a randomized function or differential privacy mechanism do: <br>
+									they mask the difference
 									between the same query on two neighboring datasets (i.e. dataset varying by only one single row) by adding a randomized noise
-									(it is this noise leads to the randomized answers in the example above).
+									(it is the noise which leads to the randomized answers in the example above).
 								</p>
-								<p>After knowing this. We've been able to move to the next step. You must remember that there's a word I mentioned several times,
-								similar ENOUGH. Yes, how similar the two result should be? Let's continue!
+								<p>After knowing this. You've been able to move to the next step. You must have some memory that there's a word I mentioned several times,
+								similar ENOUGH. How similar is enough? <br>
+								Let's continue!
 								</p>
 								<!-- second continue button -->
 								<button class="w3-btn w3-white w3-border w3-border-green w3-round-large btn_next"
@@ -855,37 +862,6 @@
 					<!-- end next and previous button -->
 				</div>
 				<!-- end chapter 2 -->
-
-				<!-- Chapter3 -->
-				<div class="w3-container chapter">
-					<!-- content -->
-
-					<div class="w3-display-container" style="height: 300px;">
-						<div class="w3-container w3-display-middle w3-large">
-							<p> To be continue ...</p>
-						</div>
-					</div>
-
-					<!-- continue button -->
-					<!-- <div class="w3-container w3-center">
-						<button class="w3-btn w3-white w3-border w3-border-green w3-round-large btn_next"
-							onclick="complete(this)" >Next Chapter</button>
-					</div> -->
-
-					<!-- Next and previous button -->
-					<div class="w3-container w3-right-align" style="margin-top: 150px">
-						<button class="btnL w3-btn w3-white w3-border w3-border-green w3-round-large"
-							onclick="currentDiv(this)" style="font-size: 25px; -ms-transform: rotate(-90deg);
-							-webkit-transform: rotate(-90deg);
-							transform: rotate(-90deg);">&#8679;</button>
-						<button class="btnR w3-btn w3-white w3-border w3-border-green w3-round-large w3-disabled"
-							onclick="currentDiv(this)" style="font-size: 25px; -ms-transform: rotate(90deg);
-							-webkit-transform: rotate(90deg);
-							transform: rotate(90deg);">&#8679;</button>
-					</div>
-					<!-- end next and previous button -->
-				</div>
-				<!-- end chapter 3 -->
 
 
 			</div> <!-- end twothird main contents-->
