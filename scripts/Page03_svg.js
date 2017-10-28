@@ -13,13 +13,24 @@ function updateData() {
 
 }
 
-// function clearData(btn, svg) {
-//   btn = d3.range(31).map(function() { return [] });
-//   svg.redraw(btn);
-// }
+function cleanData(section) {
+  if (section == 1) {
+    data_L1 = d3.range(31).map(function() { return [] });
+    data_R1 = d3.range(31).map(function() { return [] });
+    svgL1 = chapter03_draw("d3_plots_L1", 0, 3, data_L1);
+    svgR1 = chapter03_draw("d3_plots_R1", 0, 3, data_R1);
+  }
+  if (section == 2) {
+    data_L1 = d3.range(31).map(function() { return [] });
+    data_R1 = d3.range(31).map(function() { return [] });
+    svgL1 = chapter03_draw("d3_plots_L1", 0, 3, data_L1);
+    svgR1 = chapter03_draw("d3_plots_R1", 0, 3, data_R1);
+  }
+
+}
 
 
-function chapter03_draw(svg_id, random, answer, data) {
+function chapter03_draw(svg_id, random, truth, data) {
 
         var svgID = "#" + svg_id;
         d3.select(svgID).selectAll("svg." + svg_id).remove();
@@ -37,8 +48,14 @@ function chapter03_draw(svg_id, random, answer, data) {
         var bins = 31;
         var min = -5;
         var max = 10;
-        var result;
-        var temp = [];
+
+        var chart = {
+          redraw: redraw,
+          data: data,
+          answer: 0,
+          truth: truth,
+          update: update
+        }
 
         // data
         for (var i = 0; i < 30; i++) {
@@ -46,14 +63,10 @@ function chapter03_draw(svg_id, random, answer, data) {
         }
 
 
-         function getResult(p) {
-           temp.push(p);
-         }
-
-
         generator = (function() {
-            var gen = d3.randomNormal(answer, 2);
+            var gen = d3.randomNormal(truth, 2);
             return function() {
+              console.log(truth)
                 return ~~Math.max(min, Math.min(gen(), max));
             }
         }());
@@ -138,7 +151,7 @@ function chapter03_draw(svg_id, random, answer, data) {
          }
 
          function drawVLine() {
-           var x_bins = [answer-0.5, answer+0.5];
+           var x_bins = [truth-0.5, truth+0.5];
 
            svg_left.selectAll(".vline")
                     .remove()
@@ -156,23 +169,15 @@ function chapter03_draw(svg_id, random, answer, data) {
 
 
         function update(target) {
-          var counter = 0;
-              intervalId = setInterval(function() {
-                var number;
-                if(random == 1) number = generator();
-                else number = answer;
-                var bin;
-                bin = (number + Math.abs(d3.min(x)))*2;
-                data[bin].push(number);
-                getResult(number);
-                redraw();
-                //counter = counter + 1;
-               if (++counter >= target) {
-                   clearInterval(intervalId);
-                }
-              }, 800);
-
-            }
+          var number;
+          if(random == 1) {console.log("here"); number = generator();}
+          else number = truth;
+          var bin;
+          bin = (number + Math.abs(d3.min(x)))*2;
+          data[bin].push(number);
+          chart.answer = number;
+          redraw();
+        }
 
         function redraw() {
 
@@ -200,7 +205,7 @@ function chapter03_draw(svg_id, random, answer, data) {
             var heightf = height*0.33;
             var datat = [];
 
-            datat = getData(answer);
+            datat = getData(truth);
 
             var x = d3.scaleLinear()
                 .range([0, width]);
@@ -235,7 +240,7 @@ function chapter03_draw(svg_id, random, answer, data) {
               .attr("d", line)
               .attr("transform", "translate(0, 5)")
 
-            function getData(answer) {
+            function getData(truth) {
 
               // loop to populate data array with
               // probabily - quantile pairs
@@ -247,7 +252,7 @@ function chapter03_draw(svg_id, random, answer, data) {
 
               for (var i = 0; i < 100000; i++) {
 
-                  p = gaussian(q[i], answer, 2) // calc prob of rand draw
+                  p = gaussian(q[i], truth, 2) // calc prob of rand draw
                   el = {
                       "q": q[i],
                       "p": p
@@ -262,7 +267,7 @@ function chapter03_draw(svg_id, random, answer, data) {
 
           //console.log("outside", temp);
 
-      // init
+      //init
       if (random == 1) {
         drawVLine_random();
         plot_nd_line();
@@ -273,12 +278,7 @@ function chapter03_draw(svg_id, random, answer, data) {
       redraw();
 
       // return
-       var chart = {
-         redraw: redraw,
-         data: data,
-         answer: temp[temp.length-1],
-         update: update
-       }
+
 
        return chart;
   }

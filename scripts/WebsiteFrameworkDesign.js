@@ -98,13 +98,13 @@ function next(n, cn, id) {
   }
   if (cn == "nextchap1-1" && id.includes(ch3_03)) {
     svgL1 = chapter03_draw("d3_plots_L1", 0, 3, data_L1);
-    updateData();
+    //updateData();
   }
 
   if (cn == "nextchap1-2" && id.includes(A1)) {
     svgL2 = chapter03_draw("d3_plots_L2", 1, 3, data_L2);
     svgR2 = chapter03_draw("d3_plots_R2", 1, 2, data_R2);
-    updateData();
+    //updateData();
   }
   //  window.scrollBy(0, 300);
 
@@ -141,7 +141,7 @@ function replace(cn, id1, id2) {
 
   if (cn == "nextchap1-1" && id1.includes(one) || id2.includes(one)) {
     svgR1 = chapter03_draw("d3_plots_R1", 0, 2, data_R1);
-    updateData();
+    //updateData();
   }
 
   next[id2.length-1].scrollIntoView({behavior: "smooth"})

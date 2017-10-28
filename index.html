@@ -347,7 +347,7 @@
 										<td>N</td>
 									</tr>
 								</table>
-								<p class="w3-center" style="line-height: 15px;">Dataset D1</p>
+								<p class="w3-center w3-medium" style="line-height: 15px;">Dataset D1</p>
 								<p>Now assume you're a hacker and you know Alice is in the first row of this dataset. You wants to know if Alice has HIV or not.
 								What would you do?</p>
 
@@ -396,7 +396,7 @@
 											<div class="w3-row">
 												<!-- button -->
 												<div class="w3-col w3-left" style="width:10%; margin-top: 60px">
-													<button class="w3-btn w3-white w3-border w3-border-grey w3-round-large" onclick="pressL1(1)" id="btnQueryL">Query</button>
+													<button class="w3-btn w3-white w3-border w3-border-grey w3-round-large" onclick="page03_anim(1, 'left')" id="btnQueryL">Query</button>
 												</div>
 												<!-- table and downward line -->
 												<div class="w3-col w3-right" style="width:60%">
@@ -476,7 +476,7 @@
 												<div class="w3-row">
 													<!-- button -->
 													<div class="w3-col w3-right" style="width:10%; margin-top: 60px;">
-														<button class="w3-btn w3-white w3-round-large w3-border w3-border-grey" onclick="pressR1(1)" id="btnQueryR">Query</button>
+														<button class="w3-btn w3-white w3-round-large w3-border w3-border-grey" onclick="page03_anim(1, 'right')" id="btnQueryR">Query</button>
 													</div>
 													<!-- table and downward line -->
 													<div class="w3-col w3-left" style="width:60%">
@@ -569,7 +569,9 @@
 										<!-- animation button -->
 										<div class="w3-container w3-center nextchap1-1" id="three" style="margin-top: 10px; display: none;">
 											<input class="w3-btn w3-white w3-border w3-border-green w3-round-large" type="button"
-											  onclick="pressLR1(1)" id="ch3_08" data-default="Keep Querying" data-alt="Stop Querying" value="Keep Querying"></input>
+											  onclick="page03_anim(1, 'both')" id="ch3_08" data-default="Keep Querying" data-alt="Stop Querying" value="Keep Querying"></input>
+												<!-- <button class="w3-btn w3-white w3-border w3-border-green w3-round-large" style="margin-left: 20px;" onclick="cleanData(1)">Clear Data</button> -->
+
 
 												<div class="w3-section">
 													<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
@@ -618,7 +620,8 @@
 								<div class="w3-row">
 									<!-- button -->
 									<div class="w3-col w3-left" style="width:10%">
-										<button class="w3-btn w3-white w3-round-large w3-border w3-border-grey" id="btnQueryLchp1-2">Query</button>
+										<button class="w3-btn w3-white w3-round-large w3-border w3-border-grey" onclick="page03_anim(2, 'left')"
+										id="btnQueryLchp1-2">Query</button>
 									</div>
 									<!-- table and downward line -->
 									<div class="w3-col w3-right" style="width:60%">
@@ -694,7 +697,8 @@
 								<div class="w3-row">
 									<!-- button -->
 									<div class="w3-col w3-right" style="width:10%">
-										<button class="w3-btn w3-white w3-round-large w3-border w3-border-grey" id="btnQueryRchp1-2">Query</button>
+										<button class="w3-btn w3-white w3-round-large w3-border w3-border-grey" onclick="page03_anim(2, 'right')"
+										id="btnQueryRchp1-2">Query</button>
 									</div>
 									<!-- table and downward line -->
 									<div class="w3-col w3-left" style="width:60%">
@@ -764,14 +768,6 @@
 
 							 <!-- center -->
 							<div class="w3-rest">
-								<!-- <div class="w3-display-container" style="height: 700px">
-									<div class="w3-display-middle">
-										<p class="w3-yellow w3-center"> As an example, we add a normal distribution function in the system.
-											This leads to a larger possible answer range compared to only one possible answer before.
-										</p>
-										<div class="w3-center" style="font-size: 50px; transform: scale(2, 1);">&#8596;</div>
-									</div>
-								</div> -->
 								<div class="w3-container w3-center" style="margin-top: 250px;">
 									<p class="w3-yellow"> As an example, we add a normal distribution function in the system.
 										This leads to a larger possible answer range compared to only one possible answer before.
@@ -788,9 +784,10 @@
 						<!-- animation button -->
 						<div class="w3-container w3-center">
 							<div class="w3-container nextchap1-2" id="A2" style="margin-top: 30px; display: none">
-								<input class="w3-btn w3-white w3-border w3-border-green w3-round-large" type="button" style="margin-right: 20px;"
-									id="btnAnimationchp1-2" data-default="Keep Querying" data-alt="Stop Querying" value="Querying 10 times"></input>
-								<button class="w3-btn w3-white w3-border w3-border-green w3-round-large" style="margin-left: 20px;" onclick="pressR2(50)">Quick Querying</button>
+								<input class="w3-btn w3-white w3-border w3-border-green w3-round-large" type="button" style="margin-right: 20px;" onclick="page03_anim(2, 'both')"
+									id="btnAnimationchp1-2" data-default="Keep Querying" data-alt="Stop Querying" value="Keep Querying"></input>
+								<button class="w3-btn w3-white w3-border w3-border-green w3-round-large" id="quick" style="margin-left: 20px;" onclick="quickAnim()">Quick Querying</button>
+								<!-- <button class="w3-btn w3-white w3-border w3-border-green w3-round-large w3-right-align" style="margin-left: 20px;" onclick="cleanData(2)">Clear Data</button> -->
 							</div>
 
 							<!-- first continue button -->
@@ -876,15 +873,15 @@
 </body>
 
 
-<script src="scripts/gaussianRandom.js"></script>
+<!-- <script src="scripts/gaussianRandom.js"></script> -->
 <script src="scripts/gaussian.js"></script>
 <!-- <script src="scripts/left_barChart_d3.js"></script> -->
-<script src="scripts/chapter03_svg.js"></script>
+<script src="scripts/Page03_svg.js"></script>
 <!-- <script src="scripts/right_barChart_d3.js"></script>
 <script src="scripts/chap1_2LeftChart.js"></script>
 <script src="scripts/chap1_2RightChart.js"></script> -->
-<script src="scripts/chapter1_2_jquery.js"></script>
-<script src="scripts/webpage_interaction_jQuery.js"></script>
+<!-- <script src="scripts/chapter1_2_jquery.js"></script> -->
+<script src="scripts/Page03_animation.js"></script>
 <script src="scripts/WebsiteFrameworkDesign.js"></script>
 
 
