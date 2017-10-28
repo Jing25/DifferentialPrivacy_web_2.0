@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>Differential Privacy</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,9 +8,9 @@
 	<meta content="utf-8" http-equiv="encoding">
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<script src="scripts/es6-promise.min.js"></script>
+	<script src="library/es6-promise.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="scripts/jquery.animate-colors.js"></script>
+	<script src="library/jquery.animate-colors.js"></script>
 	<script src="https://d3js.org/d3.v4.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style/mystyle.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,16 +19,18 @@
 
 <body class="w3-light-grey" style="margin-bottom: 200px">
 
-	<header class="w3-container w3-grey">   <!--style="position: fixed; top: 0; width: 100%; z-index: 1"-->
-	  <h2 class="w3-text-black">Differential Privacy</h2>
-	  <p>An interactive website tells you differential privacy</p>
+	<header class="w3-container w3-grey">
+		<!--style="position: fixed; top: 0; width: 100%; z-index: 1"-->
+		<h2 class="w3-text-black">Differential Privacy</h2>
+		<p>An interactive website tells you differential privacy</p>
 	</header>
 
-<!-- content -->
-	<div class="w3-container" style="max-width: 2000px; margin: auto;">  <!--style="margin-top: 110px; "-->
+	<!-- content -->
+	<div class="w3-container" style="max-width: 2000px; margin: auto;">
+		<!--style="margin-top: 110px; "-->
 		<div class="w3-container w3-row-padding">
 
-<!-- Navigation Bar -->
+			<!-- Navigation Bar -->
 			<div class="w3-third w3-container">
 				<ul class="StepProgress">
 					<li class="navbar StepProgress-item current" onclick="currentDiv(this)"><b>Background<b></li>
@@ -368,7 +371,7 @@
 								<div class="w3-container nextchap1-1 w3-green" id="ch3_02" style="display: none;">
 									Pressing the button "Query", you can perform a query "How many people have HIV?" on dataset D1. You will get an answer 3.
 								</div>
-								<div class="w3-container nextchap1-1 w3-blue" id="ch3_04" style="display: none;">
+								<!-- <div class="w3-container nextchap1-1 w3-blue" id="ch3_04" style="display: none;">
 									To make the second query -- "Excludeing Alice's data, how many people have HIV?" easier to understand,
 									we literally delete the first row (Alice's data) in the dataset and create a new dataset D2.
 									Then we can perform the same query on dataset D2.
@@ -379,7 +382,7 @@
 								<div class="w3-container nextchap1-1 w3-blue" id="ch3_07" style="display: none;">
 									An alternative way for query is press "Querying 10 Times" button on the bottom, which let you easily perform the same query on two datasets D1 and D2 together for 10 times.
 									If you're tired of querying, press "continue" to move on.
-								</div>
+								</div> -->
 
 						 </div>
 						<!-- <div class="w3-container w3-center">
@@ -564,14 +567,32 @@
 								</div>
 
 								<!-- the rest -->
+								<div class="w3-center w3-large" style="line-height: 40px; width: 80%; margin: auto;">
+									<div class="w3-container nextchap1-1 w3-green" id="ch3_04" style="display: none;">
+										To make the second query -- "Excludeing Alice's data, how many people have HIV?" easier to understand,
+										we literally delete the first row (Alice's data) in the dataset and create a new dataset D2.
+										Then we can perform the same query on dataset D2.
+									</div>
+									<div class="w3-container nextchap1-1 w3-green" id="ch3_05" style="display: none;">
+										Pressing right hand side button "Query", performing the same query on the dataset D2, you will get an answer 2.
+									</div>
+									<div class="w3-container nextchap1-1 w3-green" id="ch3_07" style="display: none;">
+										An alternative way for query is press "Querying 10 Times" button on the bottom, which let you easily perform the same query on two datasets D1 and D2 together for 10 times.
+										If you're tired of querying, press "continue" to move on.
+									</div>
+								</div>
 								<div class="w3-container">
+
 
 										<!-- animation button -->
 										<div class="w3-container w3-center nextchap1-1" id="three" style="margin-top: 10px; display: none;">
 											<input class="w3-btn w3-white w3-border w3-border-green w3-round-large" type="button"
 											  onclick="page03_anim(1, 'both')" id="ch3_08" data-default="Keep Querying" data-alt="Stop Querying" value="Keep Querying"></input>
-												<!-- <button class="w3-btn w3-white w3-border w3-border-green w3-round-large" style="margin-left: 20px;" onclick="cleanData(1)">Clear Data</button> -->
-
+												<!-- <button class="w3-btn w3-white w3-border w3-border-green w3-round-large" style="margin-left: 20px;" onclick="clean(1)">Clear Data</button> -->
+												<!-- <div class="w3-section">
+													<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
+													onclick="cleanData()">Clear Data</button>
+												</div> -->
 
 												<div class="w3-section">
 													<button class="w3-btn w3-white w3-border w3-border-green w3-round-large"
@@ -607,7 +628,7 @@
 				<!-- Chapter 1-2 -->
 					<div class="w3-container">
 
-						<div class="w3-container w3-center w3-large w3-blue nextchap1-2" id="A0" style="line-height: 40px; width: 80%; margin: auto; display: none;">
+						<div class="w3-container w3-center w3-large w3-green nextchap1-2" id="A0" style="line-height: 40px; width: 80%; margin: auto; display: none;">
 							You can play it as in previous example. A new button "Quick Query 50 times" provides you a quick way to perform queries
 							on these two datasets 50 times and give you a better view of the randomized process and results.
 						</div>
@@ -875,12 +896,7 @@
 
 <!-- <script src="scripts/gaussianRandom.js"></script> -->
 <script src="scripts/gaussian.js"></script>
-<!-- <script src="scripts/left_barChart_d3.js"></script> -->
 <script src="scripts/Page03_svg.js"></script>
-<!-- <script src="scripts/right_barChart_d3.js"></script>
-<script src="scripts/chap1_2LeftChart.js"></script>
-<script src="scripts/chap1_2RightChart.js"></script> -->
-<!-- <script src="scripts/chapter1_2_jquery.js"></script> -->
 <script src="scripts/Page03_animation.js"></script>
 <script src="scripts/WebsiteFrameworkDesign.js"></script>
 
